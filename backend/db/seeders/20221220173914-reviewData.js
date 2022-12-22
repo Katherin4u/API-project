@@ -7,20 +7,20 @@ if(process.env.NODE_ENV === 'production'){
 
 const reviewsDemo = [
   {
-    spotId: 1,
-    userId:1,
+    spotId: 2,
+    userId:3,
     review:'Great view',
     stars: 4.5
   },
   {
-    spotId: 2,
-    userId:2,
+    spotId: 1,
+    userId:1,
     review:'very nice home',
     stars: 5.0
   },
   {
     spotId: 3,
-    userId:3,
+    userId:2,
     review:'it was awful',
     stars: 2.5
   }
