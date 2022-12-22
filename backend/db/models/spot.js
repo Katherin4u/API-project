@@ -10,12 +10,27 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+    static async createSpot({ownerId, address, city, state, country, lat, lng, name, description, price}){
+      const owner = await Spot.create({
+        ownerId,
+        address,
+        city,
+        state,
+        country,
+        lat,
+        lng,
+        name,
+        description,
+        price
+      });
+      return await Spot.findByPk(owner.id)
+    }
     static associate(models) {
       // define association here
       Spot.belongsTo(models.User, {foreignKey: 'ownerId'});
       Spot.hasMany(models.SpotImage, {foreignKey: 'spotId'})
-      Spot.belongsToMany(models.User, {through: models.Review});
-      Spot.belongsToMany(models.User, {through: models.Booking})
+      Spot.hasMany(models.Review, {foreignKey: 'spotId'});
+      Spot.hasMany(models.Booking, {foreignKey:'spotId'})
 
     }
   }
@@ -63,6 +78,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Spot',
+    defaultScope: {
+      attributes: {
+        exclude: ['owner']
+      }
+    }
   });
   return Spot;
 };

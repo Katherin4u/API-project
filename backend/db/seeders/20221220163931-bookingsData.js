@@ -8,13 +8,13 @@ if(process.env.NODE_ENV === 'production'){
 const bookingsDemo = [
   {
     spotId: 1,
-    userId:1,
+    userId:3,
     startDate: "2-24-2023",
     endDate:"3-07-2023"
   },
   {
     spotId: 2,
-    userId:2,
+    userId:1,
     startDate: "3-04-2023",
     endDate: "3-15-2023"
   },
