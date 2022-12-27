@@ -9,6 +9,9 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+    static getCurrentUserById(id) {
+      return SpotImage.scope('currentUser').findByPk(id);
+    }
     static associate(models) {
       // define association here
       SpotImage.belongsTo(models.Spot, {foreignKey: 'spotId'});
@@ -30,6 +33,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'SpotImage',
+    scope: {
+      currentUser: {
+        attributes: {exclude: ['spotId', 'createdAt', 'updatedAt']}
+      }
+    }
   });
   return SpotImage;
 };
