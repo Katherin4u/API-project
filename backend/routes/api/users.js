@@ -44,45 +44,39 @@ const validateSignup = [
 ];
 
 // Sign up
-router.post(
-    '/',
-    validateSignup,
-    async (req, res) => {
-        const { firstName, lastName, email, password, username } = req.body;
-        const userEmail = await User.findOne({
-            where: { email },
-        });
-        const userUsername = await User.findOne({
-            where: { username },
-        });
-
-        if (userEmail) {
-            res.status(403);
-            return res.json({
-                message: "User already exists",
-                statusCode: 403,
-                errors: {
-                    email: "User with that email already exists",
-                },
-            });
-        }
-
-        if (userUsername) {
-            res.status(403);
-            return res.json({
-                message: "User already exists",
-                statusCode: 403,
-                errors: {
-                    email: "User with that username already exists",
-                },
-            });
-        }
-        const user = await User.signup({ firstName, lastName, email, username, password });
-        await setTokenCookie(res, user);
-        user = user.toJSON();
-        user.token = token;
-        return res.json({user: user});
+router.post("/", validateSignup, async (req, res) => {
+    const { email, password, username, firstName, lastName } = req.body;
+    let errors = {};
+    const userEmail = await User.findOne({ where: { email } });
+    if (userEmail) {
+        errors.email = "User with that email already exists";
     }
-);
+
+    const userName = await User.findOne({ where: { username } });
+    if (userName) {
+        errors.username = "User with that username already exists";
+    }
+
+
+ 
+    let user = await User.signup({
+        email,
+        username,
+        password,
+        firstName,
+        lastName,
+    });
+    let token = await setTokenCookie(res, user);
+
+    user = user.toJSON();
+    delete user.createdAt;
+    delete user.updatedAt;
+    user.token = token;
+
+    
+    return res.json(
+        user
+    );
+});
 
 module.exports = router;
