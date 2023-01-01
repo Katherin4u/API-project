@@ -210,7 +210,7 @@ router.get("/current",
                 "price",
                 "createdAt",
                 "updatedAt",
-                [sequelize.fn("AVG", sequelize.col("Review")), "avgRating"],
+                [sequelize.fn("AVG", sequelize.col("Review.stars")), "avgRating"],
                 [sequelize.col("SpotImages.url"), "previewImage"],
             ],
 
