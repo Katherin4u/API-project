@@ -213,7 +213,7 @@ router.get("/current",
                 [sequelize.fn("AVG", sequelize.col("Review.stars")), "avgRating"],
                 [sequelize.col("SpotImages.url"), "previewImage"],
             ],
-
+            group: ["Reviews.stars", "SpotImages.url", "Spot.id"],
         })
         return res.json({ Spots: spotForCurrUser })
 
