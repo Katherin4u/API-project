@@ -179,7 +179,7 @@ router.get("/", allSpotValidation, async (req, res, next) => {
 
 // get all spots owned by the current User
 router.get("/current", requireAuth, async (req, res, next) => {
-    const currentUserSpots = await Spot.findAll({
+    const userSpots = await Spot.findAll({
         where: { ownerId: req.user.id },
         include: [
             { model: Review, attributes: [] },
@@ -204,7 +204,7 @@ router.get("/current", requireAuth, async (req, res, next) => {
         ],
         group: ["Reviews.stars", "SpotImages.url", "Spot.id"],
     });
-    return res.json({ Spots: currentUserSpots });
+    return res.json({ Spots: userSpots });
 });
 
 
