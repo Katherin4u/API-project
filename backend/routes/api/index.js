@@ -10,6 +10,9 @@ const spotImagesRouter = require('./spotImages.js')
 // GET /api/restore-user
 const { restoreUser } = require('../../utils/auth.js');
 
+router.post('/test', (req, res) => {
+    res.json({ requestBody: req.body });
+  });
 router.use(restoreUser);
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
@@ -19,8 +22,5 @@ router.use('/bookings', bookingsRouter)
 router.use('/review-Images', reviewImagesRouter)
 router.use('/spot-Images', spotImagesRouter)
 
-router.post('/test', (req, res) => {
-    res.json({ requestBody: req.body });
-  });
 
 module.exports = router;
