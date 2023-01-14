@@ -58,7 +58,7 @@ router.post("/", validateSignup, async (req, res) => {
     }
 
 
- 
+
     let user = await User.signup({
         email,
         username,
@@ -73,10 +73,8 @@ router.post("/", validateSignup, async (req, res) => {
     delete user.updatedAt;
     user.token = token;
 
-    
-    return res.json(
-        user
-    );
+
+    return res.json(user);
 });
 
 module.exports = router;
