@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { createSpotThunk } from "../../store/spots";
+import { createSpotThunk, addSpotImageThunk } from "../../store/spots";
 import './createSpot.css'
 
 
@@ -35,10 +35,21 @@ export default function CreateSpot() {
             description
         };
 
+
         let createdSpot = await dispatch(createSpotThunk(spot));
 
-        const id = createdSpot.id;
-        history.push(`/spots/${id}`);
+        if (createdSpot && imageurl) {
+            const image = {
+                url: imageurl,
+                preview: true,
+            }
+
+            
+            await dispatch(addSpotImageThunk(image, createdSpot.id))
+            const id = createdSpot.id;
+            history.push(`/spots/${id}`);
+        }
+
     }
 
     useEffect(() => {
@@ -63,7 +74,7 @@ export default function CreateSpot() {
                 <div id="client-info">
                     <ul className="errors-input">
                         {errorValidations.map((error) => {
-                           return <li key={error}>{error}</li>
+                            return <li key={error}>{error}</li>
                         })}
                     </ul>
                     <form className="spot-inputs" onSubmit={handleSubmit}>
