@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { createSpotThunk } from "../../store/spots";
 import './createSpot.css'
 
 
 export default function CreateSpot() {
     const history = useHistory();
+    const dispatch = useDispatch();
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
     const [city, setCity] = useState('');
@@ -14,12 +17,14 @@ export default function CreateSpot() {
     const [imageurl, setImageUrl] = useState('');
     const [description, setDescription] = useState('');
     const [errorValidations, setErrorValidations] = useState([]);
+    const user = useSelector((state) => state.session.user);
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const spot = {
+            ownerId: user,
             name,
             address,
             city,
@@ -28,8 +33,11 @@ export default function CreateSpot() {
             price,
             imageurl,
             description
-        }
+        };
 
+        let createdSpot = await dispatch(createSpotThunk(spot));
+
+        const id = createdSpot.id;
         history.push(`/spots/${id}`);
     }
 
@@ -49,13 +57,13 @@ export default function CreateSpot() {
 
 
     return (
-        <div>
-            <h1 className="Introduction"></h1>
+        <div style={{ width: '600px' }}>
+            <h1 className="Introduction">Create A Spot!</h1>
             <div className="Spot-creation">
                 <div id="client-info">
                     <ul className="errors-input">
                         {errorValidations.map((error) => {
-                            <li key={error}>{error}</li>
+                           return <li key={error}>{error}</li>
                         })}
                     </ul>
                     <form className="spot-inputs" onSubmit={handleSubmit}>
