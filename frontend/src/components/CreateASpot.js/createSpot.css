@@ -1,0 +1,75 @@
+.spot-inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.Spot-creation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.createSpot-name-input {
+    margin: 2px 8px;
+    height: 40;
+    border-radius: 8px;
+}
+
+.createSpot-address-input {
+    margin: 2px 8px;
+    height: 40;
+    border-radius: 8px;
+}
+
+.createSpot-city-input {
+    margin: 2px 8px;
+    height: 40;
+    border-radius: 8px;
+}
+
+.createSpot-state-input {
+    margin: 2px 8px;
+    height: 40;
+    border-radius: 8px;
+}
+
+.createSpot-country-input {
+    margin: 2px 8px;
+    height: 40;
+    border-radius: 8px;
+}
+
+.createSpot-price-input{
+    margin: 2px 8px;
+    height: 40;
+    border-radius: 8px;
+}
+
+.createSpot-imageUrl-input{
+    margin: 2px 8px;
+    height: 40;
+    border-radius: 8px;
+}
+
+.createSpot-description-input{
+    margin: 2px 8px;
+    height: 40;
+    border-radius: 8px;
+}
+
+.Introduction{
+    text-align: start;
+}
+
+.createSpot-buttons{
+    background: linear-gradient(45deg, #FF5A5F, #e31c5f 30%);
+    color: #FFF;
+    font-weight: 500;
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    width: 100%;
+    bottom: 20px;
+    margin-right: 0;
+}
