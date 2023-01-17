@@ -4,7 +4,8 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation/index";
-import CreateSpot from "./components/CreateASpot.js/createSpot";
+import CreateSpot from "./components/CreateASpot/createSpot";
+import EditSpot from "./components/EditSpot/editSpot";
 
 
 
@@ -23,6 +24,9 @@ function App() {
           <Switch>
             <Route path='/spots/create'>
               <CreateSpot />
+            </Route>
+            <Route path='/spots/:spotId/edit'>
+              <EditSpot />
             </Route>
           </Switch>
         )}
