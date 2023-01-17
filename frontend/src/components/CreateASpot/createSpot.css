@@ -11,49 +11,49 @@
 
 .createSpot-name-input {
     margin: 2px 8px;
-    height: 40;
+    height: 40px;
     border-radius: 8px;
 }
 
 .createSpot-address-input {
     margin: 2px 8px;
-    height: 40;
+    height: 40px;
     border-radius: 8px;
 }
 
 .createSpot-city-input {
     margin: 2px 8px;
-    height: 40;
+    height: 40px;
     border-radius: 8px;
 }
 
 .createSpot-state-input {
     margin: 2px 8px;
-    height: 40;
+    height: 40px;
     border-radius: 8px;
 }
 
 .createSpot-country-input {
     margin: 2px 8px;
-    height: 40;
+    height: 40px;
     border-radius: 8px;
 }
 
 .createSpot-price-input{
     margin: 2px 8px;
-    height: 40;
+    height: 40px;
     border-radius: 8px;
 }
 
 .createSpot-imageUrl-input{
     margin: 2px 8px;
-    height: 40;
+    height: 40px;
     border-radius: 8px;
 }
 
 .createSpot-description-input{
     margin: 2px 8px;
-    height: 40;
+    height: 40px;
     border-radius: 8px;
 }
 
@@ -72,4 +72,13 @@
     width: 100%;
     bottom: 20px;
     margin-right: 0;
+}
+
+.createSpot-buttons{
+    border-radius: 10px;
+    background-color: white;
+}
+
+.creatSpot-canceledit-button{
+    background-color: #f5f5f5;
 }

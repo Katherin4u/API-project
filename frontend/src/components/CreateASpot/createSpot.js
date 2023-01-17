@@ -44,7 +44,7 @@ export default function CreateSpot() {
                 preview: true,
             }
 
-            
+
             await dispatch(addSpotImageThunk(image, createdSpot.id))
             const id = createdSpot.id;
             history.push(`/spots/${id}`);
@@ -55,16 +55,21 @@ export default function CreateSpot() {
     useEffect(() => {
         const errors = []
 
-        if (name.length === 0) errors.push('Please Enter a Valid Name');
-        if (address.length === 0) errors.push('Please Enter a Valid Address')
-        if (city.length === 0) errors.push('Please Enter a Valid City')
-        if (state.length === 0) errors.push('Please Enter a Valid State')
-        if (country.length === 0) errors.push('Please Enter a Valid Country')
-        if (price <= 0) errors.push('Please Enter a Price')
-        if (description.length === 0) errors.push('Please Enter a Description')
+        if (name.length === 0) errors.push('Name must be less than 50 characters');
+        if (address.length === 0) errors.push('Street address is required')
+        if (city.length === 0) errors.push('City is required')
+        if (state.length === 0) errors.push('State is required')
+        if (country.length === 0) errors.push('Country is required')
+        if (price <= 0) errors.push('Price per day is required')
+        if (description.length === 0) errors.push('Description is required')
 
         setErrorValidations(errors)
     }, [name, address, city, state, country, price, description])
+
+    const cancel = (e) => {
+        e.preventDefault();
+        history.push('/spots')
+    }
 
 
     return (
@@ -144,6 +149,9 @@ export default function CreateSpot() {
                                 Submit
                             </button>
 
+                            <button className="creatSpot-canceledit-button" onClick={(e) => cancel(e)}>
+                                Cancel
+                            </button>
                         </div>
                     </form>
 

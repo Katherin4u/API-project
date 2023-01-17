@@ -43,6 +43,20 @@ export const addSpotImageThunk = (data, spotId) => async (dispatch) => {
     }
 }
 
+export const editSpotThunk = (data, spotId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/spots/${spotId}`, {
+        method:'PUT',
+        headers: {"Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    })
+
+    if(response.ok){
+        const data = await response.json()
+        dispatch(createSpot(data))
+        return data
+    } 
+}
+
 const initialState = {
     allSpots: {},
     singleSpot: {}
