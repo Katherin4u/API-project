@@ -6,6 +6,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation/index";
 import CreateSpot from "./components/CreateASpot/createSpot";
 import EditSpot from "./components/EditSpot/editSpot";
+import AllSpots from "./components/allTheSpots";
 
 
 
@@ -28,9 +29,16 @@ function App() {
             <Route path='/spots/:spotId/edit'>
               <EditSpot />
             </Route>
+            <Route path='/spots'>
+              <AllSpots />
+            </Route>
+            <Route exact path='/'>
+              <AllSpots />
+            </Route>
           </Switch>
         )}
       </main>
+
     </div>
   );
 }

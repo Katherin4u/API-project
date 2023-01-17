@@ -32,7 +32,9 @@ export default function CreateSpot() {
             country,
             price,
             imageurl,
-            description
+            description,
+            lat: 120.2352,
+            lng: 111.3521,
         };
 
 
