@@ -8,12 +8,13 @@ const AllSpots = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const stateSpot = useSelector((state) => state.spots.allSpots)
+    console.log(stateSpot)
     const spots = Object.values(stateSpot)
-
+    
     useEffect(() => {
         dispatch(getAllSpotsThunk())
     }, [dispatch])
-
+    
     const spotClick = (e, id) => {
         e.preventDefault();
         history.push(`/spots/${id}`)
@@ -22,10 +23,10 @@ const AllSpots = () => {
     return (
         <div className="main-spot-Container">
             <h1>All Spots</h1>
-            {spots.map((spot) => [
-                <div className="single-spot" onClick={(e) => spotClick(spot)} key={spot.id}>
+            {spots.map((spot) => (
+                <div className="single-spot" onClick={(e) => spotClick(e, spot.id)} key={spot.id}>
                     <div className="spot-image">
-                        <img className="image" src={spot.preview} alt={`spot#${spot.id}`} />
+                        <img className="image" src={spot.previewImage} alt={`spot#${spot.id}`} />
                     </div>
                     <div className="information-box">
                         <div className="info">
@@ -46,7 +47,7 @@ const AllSpots = () => {
                         </div>
                     </div>
                 </div>
-            ])}
+            ))}
 
         </div>
     )

@@ -1,0 +1,51 @@
+.main-spot-Container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px 40px;
+}
+
+.single-spot {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+    border-radius: 8px;
+    width: 250px;
+    height: 300px;
+}
+
+.spot-image {
+    height: 200px;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.information-box {
+    display: flex;
+    flex-direction: row;
+    padding: 8px;
+    gap: 4px;
+}
+
+.info{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.rating{
+    width: 25%;
+}
+
+.star{
+    font-weight: 600;
+    font-size: 12px;
+}
