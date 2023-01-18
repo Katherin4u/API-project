@@ -41,6 +41,7 @@ function LoginFormModal() {
             value={credential}
             onChange={(e) => setCredential(e.target.value)}
             required
+            className="demo-input"
           />
         </label>
         <label>
@@ -50,6 +51,7 @@ function LoginFormModal() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            className="demo-input"
           />
         </label>
         <button type="submit">Log In</button>
