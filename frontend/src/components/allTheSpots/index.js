@@ -34,6 +34,9 @@ const AllSpots = () => {
                                     {spot.city.length + spot.state.length > 50 ? spot.state : `${spot.city}, ${spot.state}`}
                                 </span>
                             </div>
+                            <div className="distance-away">
+                
+                            </div>
                             <div key={spot.id}>
                                 <b>${spot.price}</b> night
                             </div>
