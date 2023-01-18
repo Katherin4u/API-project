@@ -4,6 +4,7 @@ const CREATE_SPOT = 'spots/create_spot'
 const SPOT_IMAGE = 'spots/spot_Image'
 const GET_ALL_SPOTS = 'spots/get_all_Spots'
 const SINGLE_SPOT = 'spots/single_spot'
+const DELETE_SPOT = 'spots/delete_spot'
 
 
 export const createSpot = (spot) => ({
@@ -25,6 +26,13 @@ export const detailedSpot = (spot) => ({
     type: SINGLE_SPOT,
     spot
 })
+
+export const deleteASpot = (spotId) => ({
+    type: DELETE_SPOT,
+    spotId
+})
+
+
 
 
 export const createSpotThunk = (data) => async (dispatch) => {
@@ -89,6 +97,18 @@ export const detailedSpotThunk = (spotId) => async (dispatch) => {
     }
 }
 
+export const deleteButtonThunk = (spotId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/spots/${spotId}`, {
+        method: 'DELETE'
+    })
+
+    if(response.ok){
+        const spot = await response.json()
+        dispatch(deleteASpot(spot))
+        return spot
+    }
+}
+
 const initialState = {
     allSpots: {},
     singleSpot: {}
@@ -110,6 +130,12 @@ export default function spotReducer(state = initialState, action) {
             return { ...state, [action.spot.id]: action.spot }
         case SPOT_IMAGE:
             return { ...state, [action.image.id]: { ...action.image, previewImage: action.image.url } }
+        case DELETE_SPOT:
+            const spotCopy = {
+                ...state
+            }
+            delete spotCopy.allSpots[action.spotId]
+            return spotCopy
         default:
             return state;
     }

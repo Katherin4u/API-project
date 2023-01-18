@@ -1,13 +1,12 @@
-import { useEffect, useState} from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams,} from "react-router-dom";
 import { editSpotThunk } from "../../store/spots";
+import { useModal } from "../../context/Modal";
 
 
-const EditSpot = () => {
+const EditSpotModal = () => {
     const dispatch = useDispatch()
-    const history = useHistory();
-    const { spotId } = useParams()
+
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
     const [city, setCity] = useState('');
@@ -17,6 +16,7 @@ const EditSpot = () => {
     const [price, setPrice] = useState('');
     const [errorValidation, setErrorValidation] = useState([])
     const spot = useSelector((state) => state.spots.singleSpot)
+    const { closeModal } = useModal();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -31,10 +31,7 @@ const EditSpot = () => {
             price
         }
 
-        let spotEdits = await dispatch(editSpotThunk(editSpot, spot.id))
-        if (spotEdits) {
-            history.push(`/spots/${spotId}`)
-        }
+        return dispatch(editSpotThunk(editSpot, spot.id)).then(closeModal)
     }
 
     useEffect(() => {
@@ -138,4 +135,4 @@ const EditSpot = () => {
     )
 }
 
-export default EditSpot;
+export default EditSpotModal;
