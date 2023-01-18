@@ -6,7 +6,6 @@ import './singleSpot.css'
 
 const SingleSpot = () => {
     const spot = useSelector((state) => state.spots.singleSpot)
-    const user = useSelector((state) => state.session)
     const dispatch = useDispatch();
     const { spotId } = useParams();
 
@@ -22,7 +21,7 @@ const spotImage = spot.SpotImages && spot.SpotImages.length > 0
             <div className='spot-address'>
                 <div className='info'>
                     <div className='rating-ontop'>
-                        <i className='star-icon'></i>{spot.avgStarRating}
+                        <i className='fas fa-star star-icon'></i>{spot.avgStarRating}
                     </div>
                     <div>{spot.numReview} Reviews</div>
                     <div>{spot.reviews}</div>
@@ -33,10 +32,15 @@ const spotImage = spot.SpotImages && spot.SpotImages.length > 0
                 </div>
             </div>
             {spotImage && (
-                <div className='images-div'>
-
-                </div>
+               <div className="spot-images-div">
+               {spot.SpotImages.map((image) => {
+                 return (
+                     <img key={`image-${image.id}`} className={'single-image'} src={image.url} alt="" />
+                 );
+               })}
+             </div>
             )}
+
         </div>
         
     )

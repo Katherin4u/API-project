@@ -22,7 +22,6 @@ const AllSpots = () => {
 
     return (
         <div className="main-spot-Container">
-            <h1>All Spots</h1>
             {spots.map((spot) => (
                 <div className="single-spot" onClick={(e) => spotClick(e, spot.id)} key={spot.id}>
                     <div className="spot-image">

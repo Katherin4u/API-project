@@ -1,0 +1,44 @@
+.main-container{
+    padding: 0px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.spot-name{
+    font-size: 2em;
+    font-weight: 500;
+    margin: 8px;
+}
+
+.spot-address{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.info{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.star-icon{
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 4px;
+}
+
+.spot-images-div{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 4px;
+    max-height: 560px;
+    overflow: hidden;
+}
+
+.single-image{
+}
