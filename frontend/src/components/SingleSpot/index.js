@@ -4,7 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { deleteButtonThunk, detailedSpotThunk } from '../../store/spots';
 import './singleSpot.css'
 import OpenModalButton from '../OpenModalButton';
-import EditSpotModal from '../EditSpot/editSpot';
+import EditSpotModal from '../EditSpotModal/editSpot';
 
 const SingleSpot = () => {
     const history = useHistory();

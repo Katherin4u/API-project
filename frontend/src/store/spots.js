@@ -35,18 +35,21 @@ export const deleteASpot = (spotId) => ({
 
 
 
-export const createSpotThunk = (data) => async (dispatch) => {
-    const response = await csrfFetch(`/api/spots/`, {
-        method: 'POST',
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-    })
+export const createSpotThunk = (payload) => async (dispatch) => {
+    const { address, city, state, country, lat, lng, name, previewImage, description, price } = payload;
 
-    if (response.ok) {
-        const spot = await response.json();
-        dispatch(createSpot(spot))
-        return spot
-    }
+  const res = await csrfFetch(`/api/spots`, {
+    method: 'POST',
+    body: JSON.stringify({ address, city, state, country, lat, lng, name, description, price })
+  });
+
+  if (res.ok) {
+    const data = await res.json();
+    data.previewImage = previewImage
+    dispatch(createSpot(data));
+    return data;
+  }
+  return res;
 }
 
 export const addSpotImageThunk = (data, spotId) => async (dispatch) => {
@@ -127,7 +130,7 @@ export default function spotReducer(state = initialState, action) {
         case SINGLE_SPOT:
             return {...state, singleSpot: action.spot}
         case CREATE_SPOT:
-            return { ...state, [action.spot.id]: action.spot }
+            return { ...state, allSpots: { ...state.allSpots, [action.spot.id]: action.spot } };
         case SPOT_IMAGE:
             return { ...state, [action.image.id]: { ...action.image, previewImage: action.image.url } }
         case DELETE_SPOT:
