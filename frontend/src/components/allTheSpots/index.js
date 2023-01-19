@@ -20,6 +20,10 @@ const AllSpots = () => {
         history.push(`/spots/${id}`)
     }
 
+    function randomNumber(max, min) {
+        return Math.floor(Math.random() * (max - min) + min) * 100;
+      }
+      
     return (
         <div className="main-spot-Container">
             {spots.map((spot) => (
@@ -35,7 +39,7 @@ const AllSpots = () => {
                                 </span>
                             </div>
                             <div className="distance-away">
-                
+                             {`${randomNumber(spot.id, 1)} miles away`}
                             </div>
                             <div key={spot.id}>
                                 <b>${spot.price}</b> night

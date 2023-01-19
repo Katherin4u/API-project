@@ -5,7 +5,8 @@ import { createSpotThunk, addSpotImageThunk } from "../../store/spots";
 import './createSpot.css'
 
 
-export default function CreateSpot() {
+
+export default function CreateSpotModal() {
     const history = useHistory();
     const dispatch = useDispatch();
     const [name, setName] = useState('');
@@ -14,7 +15,7 @@ export default function CreateSpot() {
     const [state, setState] = useState('');
     const [country, setCountry] = useState('');
     const [price, setPrice] = useState('');
-    const [imageurl, setImageUrl] = useState('');
+    const [previewImage, setpreviewImage] = useState('');
     const [description, setDescription] = useState('');
     const [errorValidations, setErrorValidations] = useState([]);
     const user = useSelector((state) => state.session.user);
@@ -23,7 +24,7 @@ export default function CreateSpot() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const spot = {
+        const spot ={
             ownerId: user,
             name,
             address,
@@ -31,26 +32,27 @@ export default function CreateSpot() {
             state,
             country,
             price,
-            imageurl,
+            previewImage,
             description,
             lat: 120.2352,
             lng: 111.3521,
-        };
-
-
+        } 
+            
         let createdSpot = await dispatch(createSpotThunk(spot));
+    
+        
 
-        if (createdSpot && imageurl) {
+        if (createdSpot && previewImage) {
             const image = {
-                url: imageurl,
-                preview: true,
-            }
-
-
-            await dispatch(addSpotImageThunk(image, createdSpot.id))
+              url: previewImage,
+              preview: true,
+            };
+      
+            await dispatch(addSpotImageThunk(image, createdSpot.id));
             const id = createdSpot.id;
             history.push(`/spots/${id}`);
-        }
+          }
+
 
     }
 
@@ -129,13 +131,13 @@ export default function CreateSpot() {
                             onChange={(e) => setPrice(e.target.value)}
                         />
                         <input
-                            className="createSpot-imageUrl-input"
+                            className="createSpot-previewImage-input"
                             type='url'
                             placeholder="Image url"
-                            value={imageurl}
+                            value={previewImage}
                             onChange={(e) => {
                                 e.preventDefault();
-                                setImageUrl(e.target.value)
+                                setpreviewImage(e.target.value)
                             }}
                         />
                         <input

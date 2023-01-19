@@ -4,10 +4,9 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation/index";
-import CreateSpot from "./components/CreateASpot/createSpot";
-import EditSpot from "./components/EditSpot/editSpot";
 import AllSpots from "./components/allTheSpots";
 import SingleSpot from "./components/SingleSpot";
+import CreateSpot from "./components/CreateASpot/createSpot";
 
 
 
@@ -24,11 +23,8 @@ function App() {
       <main id='Content' >
         {isLoaded && (
           <Switch>
-            <Route path='/spots/create'>
+             <Route path="/spots/create">
               <CreateSpot />
-            </Route>
-            <Route path='/spots/:spotId/edit'>
-              <EditSpot />
             </Route>
             <Route path='/spots/:spotId'>
               <SingleSpot />
