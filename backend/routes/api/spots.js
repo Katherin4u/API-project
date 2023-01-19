@@ -477,7 +477,7 @@ router.get("/:spotId/bookings", requireAuth, async (req, res, next) => {
 
 //Edit spot
 router.put("/:spotId", requireAuth, validateSpot, async (req, res) => {
-    const { address, city, state, country, name, description, price } = req.body;
+    const { address, city, state, country, lat, lng, name, description, price } = req.body;
     const spotId = req.params.spotId;
 
     // Find the spot with the matching ID
@@ -493,6 +493,8 @@ router.put("/:spotId", requireAuth, validateSpot, async (req, res) => {
         city,
         state,
         country,
+        lat,
+        lng,
         name,
         description,
         price,

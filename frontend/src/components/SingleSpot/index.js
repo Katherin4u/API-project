@@ -21,6 +21,11 @@ const SingleSpot = () => {
         spot.SpotImages && spot.SpotImages.length > 0
     )
 
+    const editButton = (e) => {
+        e.preventDefault();
+        history.push(`/spots/${spotId}/edit`);
+      };
+
     const deleteButton = (e) => {
         e.preventDefault()
         dispatch(deleteButtonThunk(spotId))
@@ -46,7 +51,12 @@ const SingleSpot = () => {
                 </div>
                 {spot.Owner.id === user.user?.id && (
                     <div className="edit-and-delete-buttons">
-                        <OpenModalButton buttonText='Edit Spot' className="fa-solid fa-user-pen" modalComponent={<EditSpotModal />} />
+                        <button
+                            onClick={(e) => editButton(e)}
+                            className="edit-spot"
+                        >
+                            <i class="fa-solid fa-user-pen"></i>
+                        </button>
                         <button
                             onClick={(e) => deleteButton(e)} className="spot-edit-delete-button">
                             <i class="fa-solid fa-trash"></i>

@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation/index";
 import AllSpots from "./components/allTheSpots";
 import SingleSpot from "./components/SingleSpot";
 import CreateSpot from "./components/CreateASpot/createSpot";
+import EditSpotModal from "./components/EditSpotModal/editSpot";
 
 
 
@@ -23,6 +24,9 @@ function App() {
       <main id='Content' >
         {isLoaded && (
           <Switch>
+            <Route path="/spots/:spotId/edit">
+              <EditSpotModal />
+            </Route>
              <Route path="/spots/create">
               <CreateSpot />
             </Route>
