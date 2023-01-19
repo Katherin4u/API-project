@@ -5,6 +5,7 @@ const SPOT_IMAGE = 'spots/spot_Image'
 const GET_ALL_SPOTS = 'spots/get_all_Spots'
 const SINGLE_SPOT = 'spots/single_spot'
 const DELETE_SPOT = 'spots/delete_spot'
+const UPDATE_SPOT = 'spots/update_spot';
 
 
 export const createSpot = (spot) => ({
@@ -32,6 +33,12 @@ export const deleteASpot = (spotId) => ({
     spotId
 })
 
+export const updateSpot = spot => {
+    return {
+        type: UPDATE_SPOT,
+        spot
+    };
+};
 
 
 
@@ -40,12 +47,12 @@ export const createSpotThunk = (data) => async (dispatch) => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
-      });
-      if (response.ok) {
+    });
+    if (response.ok) {
         const spot = await response.json();
         dispatch(createSpot(spot));
         return spot;
-      }
+    }
 }
 
 export const addSpotImageThunk = (data, spotId) => async (dispatch) => {
@@ -71,7 +78,7 @@ export const editSpotThunk = (data, spotId) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json()
-        dispatch(createSpot(data))
+        dispatch(updateSpot(data))
         return data
     }
 }
@@ -79,7 +86,7 @@ export const editSpotThunk = (data, spotId) => async (dispatch) => {
 export const getAllSpotsThunk = () => async (dispatch) => {
     const response = await csrfFetch(`/api/spots`)
 
-    if (response.ok){
+    if (response.ok) {
         const spots = await response.json()
         dispatch(getAllSpots(spots))
         return spots
@@ -89,7 +96,7 @@ export const getAllSpotsThunk = () => async (dispatch) => {
 export const detailedSpotThunk = (spotId) => async (dispatch) => {
     const response = await csrfFetch(`/api/spots/${spotId}`)
 
-    if(response.ok){
+    if (response.ok) {
         const spot = await response.json()
         dispatch(detailedSpot(spot))
         return spot
@@ -101,7 +108,7 @@ export const deleteButtonThunk = (spotId) => async (dispatch) => {
         method: 'DELETE'
     })
 
-    if(response.ok){
+    if (response.ok) {
         const spot = await response.json()
         dispatch(deleteASpot(spot))
         return spot
@@ -124,12 +131,12 @@ export default function spotReducer(state = initialState, action) {
             return { ...state, allSpots: allTheSpots }
         }
         case SINGLE_SPOT:
-            return {...state, singleSpot: action.spot}
+            return { ...state, singleSpot: action.spot }
         case CREATE_SPOT:
             return {
                 ...state,
                 [action.spot.id]: action.spot,
-              };
+            };
         case SPOT_IMAGE:
             return { ...state, [action.image.id]: { ...action.image, previewImage: action.image.url } }
         case DELETE_SPOT:
@@ -138,6 +145,9 @@ export default function spotReducer(state = initialState, action) {
             }
             delete spotCopy.allSpots[action.spotId]
             return spotCopy
+        case UPDATE_SPOT: {
+            return { ...state, allSpots: { ...state.allSpots, [action.spot.id]: action.spot } };
+        }
         default:
             return state;
     }

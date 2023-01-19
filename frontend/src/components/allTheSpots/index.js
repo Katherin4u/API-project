@@ -8,22 +8,22 @@ const AllSpots = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const stateSpot = useSelector((state) => state.spots.allSpots)
-    console.log(stateSpot)
     const spots = Object.values(stateSpot)
-    
+
     useEffect(() => {
         dispatch(getAllSpotsThunk())
     }, [dispatch])
-    
+
     const spotClick = (e, id) => {
         e.preventDefault();
         history.push(`/spots/${id}`)
     }
 
+    // Creates a random number using the id of the spot 
     function randomNumber(max, min) {
-        return Math.floor(Math.random() * (max - min) + min) * 100;
-      }
-      
+        return ((max - min) * 100) % 500;
+    }
+
     return (
         <div className="main-spot-Container">
             {spots.map((spot) => (
@@ -39,7 +39,7 @@ const AllSpots = () => {
                                 </span>
                             </div>
                             <div className="distance-away">
-                             {`${randomNumber(spot.id, 1)} miles away`}
+                                {`${randomNumber(spot.id, 1)} miles away`}
                             </div>
                             <div key={spot.id}>
                                 <b>${spot.price}</b> night

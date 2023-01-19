@@ -1,16 +1,25 @@
 // / frontend/src/components/Navigation/ProfileButton.js
 import React, { useState, useEffect, useRef } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import OpenModalButton from '../OpenModalButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import DemoUserModal from "../demoUserModal";
+import { useHistory } from "react-router-dom";
 
 function ProfileButton({ user }) {
+  const spot = useSelector((state) => state.spots.singleSpot);
+  const history = useHistory()
+  // const user = useSelector((state) => state.session);
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
+
+  const handleCreateSpot = (e) => {
+    e.preventDefault();
+    history.push(`/spots/create`);
+  };
 
   const openMenu = () => {
     if (showMenu) return;
@@ -54,6 +63,13 @@ function ProfileButton({ user }) {
             <li>
               <button onClick={logout}>Log Out</button>
             </li>
+            <li>
+                <button  onClick={(e) => handleCreateSpot(e)}
+                className="createSpot-button"
+                >
+                Create Spot
+                </button>
+            </li>
           </>
         ) : (
           <>
@@ -75,6 +91,7 @@ function ProfileButton({ user }) {
               modalComponent={<DemoUserModal />}
               />
             </li>
+            
           </>
         )}
       </ul>

@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { deleteButtonThunk, detailedSpotThunk } from '../../store/spots';
 import './singleSpot.css'
-import OpenModalButton from '../OpenModalButton';
-import EditSpotModal from '../EditSpotModal/editSpot';
 
 const SingleSpot = () => {
     const history = useHistory();
