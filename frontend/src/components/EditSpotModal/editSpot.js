@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { editSpotThunk } from "../../store/spots";
-import { useModal } from "../../context/Modal";
+import { useHistory, useParams } from "react-router-dom";
+
 
 
 const EditSpotModal = () => {
     const dispatch = useDispatch()
+    const history = useHistory()
+    const {spotId} = useParams()
+ 
 
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
@@ -15,23 +19,32 @@ const EditSpotModal = () => {
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
     const [errorValidation, setErrorValidation] = useState([])
+    const user = useSelector((state) => state.session);
     const spot = useSelector((state) => state.spots.singleSpot)
-    const { closeModal } = useModal();
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const editSpot = {
+            ownerId: user.id,
             name,
             address,
             city,
             state,
             country,
             description,
-            price
+            price,
+            lat: 384.03,
+            lng: 100.11,
         }
 
-        return dispatch(editSpotThunk(editSpot, spot.id)).then(closeModal)
+     const thunk = dispatch(editSpotThunk(editSpot, spot.id))
+        
+        if(thunk){
+            history.push(`/spots/${spotId}`)
+        }
+
     }
 
     useEffect(() => {
@@ -79,14 +92,14 @@ const EditSpotModal = () => {
                         className="editSpot-name"
                         type='text'
                         value={name}
-                        placeholder='Edit Name'
+                        placeHolder='Edit Name'
                         onChange={(e) => setName(e.target.value)}
                     />
                     <input
                         className="editSpot-address"
                         type='text'
                         value={address}
-                        placeholder='Edit Address'
+                        placeHolder='Edit Address'
                         onChange={(e) => setAddress(e.target.value)}
                     />
                     <input
@@ -107,7 +120,7 @@ const EditSpotModal = () => {
                         className="editSpot-country"
                         type='text'
                         value={country}
-                        placeholder='Edit Country'
+                        placeHolder='Edit Country'
                         onChange={(e) => setCountry(e.target.value)}
                     />
                     <input
