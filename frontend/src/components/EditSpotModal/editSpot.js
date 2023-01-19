@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
-import { editSpotThunk } from "../../store/spots";
+import { detailedSpotThunk, editSpotThunk } from "../../store/spots";
 import { useHistory, useParams } from "react-router-dom";
 
 
@@ -8,23 +8,27 @@ import { useHistory, useParams } from "react-router-dom";
 const EditSpotModal = () => {
     const dispatch = useDispatch()
     const history = useHistory()
-    const {spotId} = useParams()
- 
-
+    const { spotId } = useParams()
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
     const [country, setCountry] = useState('');
     const [description, setDescription] = useState('');
+    const [submitted, setSubmitted] = useState(false);
     const [price, setPrice] = useState('');
     const [errorValidation, setErrorValidation] = useState([])
     const user = useSelector((state) => state.session);
     const spot = useSelector((state) => state.spots.singleSpot)
-    
 
-    const handleSubmit = async (e) => {
+
+    const submitChanges = async (e) => {
         e.preventDefault();
+
+        if (errorValidation.length > 0) {
+            setSubmitted(true)
+            return;
+        };
 
         const editSpot = {
             ownerId: user.id,
@@ -39,9 +43,9 @@ const EditSpotModal = () => {
             lng: 100.11,
         }
 
-     const thunk = dispatch(editSpotThunk(editSpot, spot.id))
-        
-        if(thunk){
+        const thunk = dispatch(editSpotThunk(editSpot, spot.id))
+
+        if (thunk) {
             history.push(`/spots/${spotId}`)
         }
 
@@ -61,6 +65,8 @@ const EditSpotModal = () => {
     }, [name, address, city, state, country, price, description])
 
     useEffect(() => {
+        // dispatch(detailedSpotThunk(spotId))
+
         if (Object.keys(spot).length > 0) {
             const { name, address, city, state, country, price, description } = spot
             setName(name);
@@ -71,13 +77,15 @@ const EditSpotModal = () => {
             setPrice(price)
             setDescription(description)
         }
-    }, [spot])
+    }, [])
+
+    // if (!spot.id) return null;
 
     return (
         <div>
             <h1 className="editSpot-Introduction">Edit your spot!</h1>
             <div id='editSpot-container'>
-                {handleSubmit && errorValidation.length > 0 && (
+                {submitted && errorValidation.length > 0 && (
                     <div className="editSpot-info">
                         <ul className="errors">
                             {errorValidation.map((error) => {
@@ -86,64 +94,73 @@ const EditSpotModal = () => {
                         </ul>
                     </div>
                 )}
-
-                <form className="editSpot-inputs" onSubmit={handleSubmit}>
-                    <input
-                        className="editSpot-name"
+            </div>
+            <form className="editSpot-inputs" onSubmit={submitChanges} style={{ border: 'black solid 2px', padding: '20px', borderRadius: '15px' }}>
+                <div className="input-box">
+                    <label for="name" className="title-label" id="name-label">Edit Name</label>
+                    <input className="editSpot-name"
                         type='text'
                         value={name}
                         placeHolder='Edit Name'
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                    <input
-                        className="editSpot-address"
+                        onChange={(e) => setName(e.target.value)} />
+                </div>
+                <div className="input-box">
+                    <label for="email" className="title-label" id="email-label">Edit Address</label>
+                    <input className="editSpot-address"
                         type='text'
                         value={address}
                         placeHolder='Edit Address'
-                        onChange={(e) => setAddress(e.target.value)}
-                    />
-                    <input
-                        className="editSpot-city"
+                        onChange={(e) => setAddress(e.target.value)} />
+                </div>
+                <div className="input-box">
+                    <label for="number" className="title-label" id="number-label">Edit City</label>
+                    <input className="editSpot-city"
                         type='text'
                         value={city}
                         placeHolder='Edit City'
-                        onChange={(e) => setCity(e.target.value)}
-                    />
+                        onChange={(e) => setCity(e.target.value)} />
+                </div>
+                <div className="input-box">
+                    <label for="number" className="title-label" id="number-label">Edit State</label>
                     <input
                         className="editSpot-state"
                         type='text'
                         value={state}
                         placeHolder='Edit State'
-                        onChange={(e) => setState(e.target.value)}
-                    />
+                        onChange={(e) => setState(e.target.value)} />
+                </div>
+                <div className="input-box">
+                    <label for="number" className="title-label" id="number-label">Edit Country</label>
                     <input
                         className="editSpot-country"
                         type='text'
                         value={country}
                         placeHolder='Edit Country'
-                        onChange={(e) => setCountry(e.target.value)}
-                    />
+                        onChange={(e) => setCountry(e.target.value)} />
+                </div>
+                <div className="input-box">
+                    <label for="number" className="title-label" id="number-label">Edit Description</label>
                     <input
                         className="editSpot-description"
                         type='text'
                         value={description}
                         placeHolder='Edit Description'
-                        onChange={(e) => setDescription(e.target.value)}
-                    />
-                    <input
-                        className="editSpot-price"
+                        onChange={(e) => setDescription(e.target.value)} />
+                </div>
+                <div className="input-box">
+                    <label for="number" className="title-label" id="number-label">Edit Price</label>
+                    <input className="editSpot-price"
                         type='text'
                         placeHolder='Edit Price'
                         value={price}
-                        onChange={(e) => setPrice(e.target.value)}
-                    />
-                    <div className="editSpot-button">
-                        <button className="editSpot-submit-button" type='submit' disabled={errorValidation.length > 0}>
-                            Submit
-                        </button>
-                    </div>
-                </form>
-            </div>
+                        onChange={(e) => setPrice(e.target.value)} />
+                </div>
+                <div className="editSpot-button">
+                    <button className="editSpot-submit-button" type='submit' disabled={errorValidation.length > 0}>
+                        Submit
+                    </button>
+                </div>
+            </form>
         </div>
     )
 }

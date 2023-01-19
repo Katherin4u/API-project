@@ -9,11 +9,7 @@ const rootReducer = combineReducers({
   spots: spotsReducer
 });
 
-// frontend/src/store/index.js
-// ...
-
 let enhancer;
-
 if (process.env.NODE_ENV === 'production') {
   enhancer = applyMiddleware(thunk);
 } else {
