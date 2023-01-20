@@ -18,6 +18,7 @@ const SingleSpot = () => {
     const [rating, setRating] = useState(1);
     const [errorValidation, setErrorValidation] = useState([]);
 
+
     const submit = async (e) => {
         e.preventDefault()
 
@@ -33,14 +34,7 @@ const SingleSpot = () => {
         if (errorValidation.length > 0) setErrorValidation([])
         const data = { review: reviewText, stars: rating };
         dispatch(addAReviewThunk(data, spotId))
-        // dispatch(allTheReviewsThunk(spotId))
-        // .then(async res => {
-        //     if (res.ok) {
-        //         dispatch(spot.detailedSpotThunk(spot.id))
-        //     }
-        // })
-        // .catch(async res => {
-        // });
+        dispatch(detailedSpotThunk(spotId))
 
     }
 
@@ -83,25 +77,29 @@ const SingleSpot = () => {
                         <div className='rating-ontop'>
                             <i className='fas fa-star star-icon'></i>{spot.avgStarRating}
                         </div>
-                        <div>{spot.numReview} Reviews</div>
+                        <div className='numReview'>{spot.numReview} Reviews</div>
                         <div>{spot.reviews}</div>
-                        <div>{spot.address}</div>
-                        <div>{spot.city}</div>
-                        <div>{spot.state}</div>
-                        <div>{spot.country}</div>
+                        <div className='location-underline'>{spot.address}</div>
+                        <div className='location-underline'>{spot.city}</div>
+                        <div className='location-underline'>{spot.state}</div>
+                        <div className='location-underline'>{spot.country}</div>
                     </div>
                     {spot.Owner.id === user.user?.id && (
                         <div className="edit-and-delete-buttons">
-                            <button
-                                onClick={(e) => editButton(e)}
-                                className="edit-spot"
-                            >
-                                <i className="fa-solid fa-user-pen"></i>
-                            </button>
-                            <button
-                                onClick={(e) => deleteButton(e)} className="spot-edit-delete-button">
-                                <i className="fa-solid fa-trash"></i>
-                            </button>
+                            <div className='top-button'>
+                                <button
+                                    onClick={(e) => editButton(e)}
+                                    className="edit-spot"
+                                >
+                                    <i className="fa-solid fa-user-pen"></i>
+                                </button>
+                            </div>
+                            <div className='buttom-button'>
+                                <button
+                                    onClick={(e) => deleteButton(e)} className="spot-edit-delete-button">
+                                    <i className="fa-solid fa-trash"></i>
+                                </button>
+                            </div>
                         </div>
                     )}
                 </div>
@@ -132,13 +130,16 @@ const SingleSpot = () => {
                     <div className='extra-words-div'>
                         <div className='selfCheckin-div'>
                             <div className='self-checkin'> Self check-In
-                                <span>
-                                    Check yourself in with the keypad.
-                                </span>
                             </div>
+                            <span className='span-text'>
+                                Check yourself in with the keypad.
+                            </span>
                         </div>
                         <div className='user-description-div'>
-                            Monica is a Superhost
+                            <div className='monica'>
+                                Monica is a Superhost
+
+                            </div>
                             <div className='user-description'>
                                 <span>
                                     Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.
@@ -147,10 +148,7 @@ const SingleSpot = () => {
                         </div>
                         <div className='location-description-div'>
                             <div className='location-description'>
-                                Great location
-                                <span>
-                                    100% of recent guests gave the location a 5-star rating.
-                                </span>
+                                Free cancellation before Feb 21.
                             </div>
                         </div>
                     </div>
@@ -161,6 +159,9 @@ const SingleSpot = () => {
                         </div>
                         <div className='descripton-checkin'>
                             Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.
+                        </div>
+                        <div className='learn-more'>
+                            Learn More
                         </div>
                     </div>
                 </div>
@@ -212,10 +213,11 @@ const SingleSpot = () => {
 
             </div>
             <div className='all-reviews-div'>
-                <div className='title'>
-                    <h3>
-                        Reviews
-                    </h3>
+                <div className='reviewbox-rating-reviews'>
+                <div className='buttom-spot-rating'>
+                    <i className='fas fa-star star-icon'></i>{spot.avgStarRating}
+                </div>
+                <div className='numReview-bottom-spot'>{spot.numReview} Reviews</div>
 
                 </div>
                 <div className='review-main'>
@@ -225,8 +227,8 @@ const SingleSpot = () => {
                                 <div className='left-div-review'>
                                     <div className='names-delete-button'>
                                         <div className='first-and-lastname'>
-                                            {rev.User.firstName}
-                                            {rev.User.lastName}
+                                            {user.user.firstName}
+                                            {user.user.lastName}
                                         </div>
                                         {user.user?.id === rev.userId && (
                                             <div className='review-delete'>
@@ -242,10 +244,6 @@ const SingleSpot = () => {
                                     <br></br>
                                     <div className='rating-date'>
                                         <div className='rate-date'>
-                                            <div>
-                                                <i className="fas fa-star rating-color"></i>
-                                                {rev.stars}
-                                            </div>
                                             <div> {rev.createdAt}</div>
                                         </div>
                                         <div className='user-review'>

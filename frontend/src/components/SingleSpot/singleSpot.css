@@ -1,16 +1,15 @@
 .main-container-single-spot {
-    padding-left: 25em;
-    padding-right: 25em;
+    padding: 0px 32px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     gap: 5px;
-    margin: 32px auto ;
+    max-width: 1040px;
+    margin: 0 auto;
 }
 
 .spot-name {
     font-size: 2em;
-    font-weight: 500;
+    font-weight: bold;
     margin: 8px;
 }
 
@@ -18,6 +17,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding-bottom: 20px;
 }
 
 .info {
@@ -49,15 +49,12 @@
     gap: 40px;
 }
 
-.rate-date{
+.rate-date {
     display: flex;
     flex-direction: row;
     gap: 15px;
 }
 
-.left-div-review {
-   border: black solid 2px
-}
 
 .names-delete-button {
     display: flex;
@@ -65,4 +62,103 @@
     justify-content: space-between;
 }
 
+.spot-images-div {
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
 
+.single-image {
+    object-fit: cover;
+    padding-bottom: 20px;
+    height: 100%;
+    width: 100%;
+  
+}
+
+.rating-ontop {
+    font-weight: bold;
+}
+
+.numReview {
+    text-decoration: underline;
+}
+
+.location-underline {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.edit-and-delete-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.top-button {
+    padding-right: 10px;
+}
+
+.description-info {
+    font-size: 2em;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.roomInfo {
+    padding-bottom: 25px;
+    border-bottom: solid lightgray 1px;
+}
+
+.self-checkin {
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    font-weight: bold;
+    font-size: 1em;
+    padding-bottom: 6px;
+}
+
+.user-description-div {
+    padding-top: 25px;
+}
+
+.monica {
+    font-weight: bold;
+    padding-bottom: 6px;
+}
+
+.location-description-div {
+    padding-top: 30px;
+    font-weight: bold;
+    padding-bottom: 25px;
+    border-bottom: solid lightgray 1px;
+}
+
+.aircover-title-image img{
+    width: 150px;
+    padding: 30px;
+    padding-left:0px;
+}
+
+.learn-more{
+    font-weight: bold;
+    padding-top: 15px;
+    text-decoration: underline;
+    border-bottom: solid lightgray 1px;
+    padding-bottom: 35px;
+}
+
+.reviewbox-rating-reviews{
+    display: flex;
+    font-size: 1.2em;
+}
+
+.numReview-bottom-spot{
+    padding-left: 15px;
+    font-weight: bold;
+}
+
+.reviewbox-rating-reviews{
+    padding-bottom: 15px;
+    padding-top: 25px;
+}

@@ -1,15 +1,16 @@
 // / frontend/src/components/Navigation/ProfileButton.js
 import React, { useState, useEffect, useRef } from "react";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import * as sessionActions from '../../store/session';
 import OpenModalButton from '../OpenModalButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import DemoUserModal from "../demoUserModal";
 import { useHistory } from "react-router-dom";
+import './Navigation.css'
 
 function ProfileButton({ user }) {
-  const spot = useSelector((state) => state.spots.singleSpot);
+  // const spot = useSelector((state) => state.spots.singleSpot);
   const history = useHistory()
   // const user = useSelector((state) => state.session);
   const dispatch = useDispatch();
@@ -50,53 +51,54 @@ function ProfileButton({ user }) {
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
 
   return (
-    <>
-      <button onClick={openMenu}>
+    <div>
+      <button onClick={openMenu}  className="profile-btn">
         <i className="fas fa-user-circle" />
       </button>
       <ul className={ulClassName} ref={ulRef}>
+        <ul className="list-profile-dropdown">
         {user ? (
-          <>
-            <li>{user.username}</li>
-            <li>{user.firstName} {user.lastName}</li>
-            <li>{user.email}</li>
-            <li>
-              <button onClick={logout}>Log Out</button>
-            </li>
-            <li>
-                <button  onClick={(e) => handleCreateSpot(e)}
-                className="createSpot-button"
+            <div>
+              <li>{user.username}</li>
+              <li>{user.firstName} {user.lastName}</li>
+              <li>{user.email}</li>
+              <li>
+                <button onClick={logout}>Log Out</button>
+              </li>
+              <li>
+                <button onClick={(e) => handleCreateSpot(e)}
+                  className="createSpot-button"
                 >
-                Create Spot
+                  Create Spot
                 </button>
-            </li>
-          </>
-        ) : (
-          <>
-            <li>
-              <OpenModalButton
-                buttonText="Log In"
-                modalComponent={<LoginFormModal />}
-              />
-            </li>
-            <li>
-              <OpenModalButton
-                buttonText="Sign Up"
-                modalComponent={<SignupFormModal />}
-              />
-            </li>
-            <li>
-              <OpenModalButton
-              buttonText="Demo Login"
-              modalComponent={<DemoUserModal />}
-              />
-            </li>
-            
-          </>
+              </li>
+            </ div>
+            ) : (
+            <>
+              <li  className="button-dropdown-item">
+                <OpenModalButton
+                  buttonText="Log In"
+                  modalComponent={<LoginFormModal />}
+                />
+              </li>
+              <li className="button-dropdown-item">
+                <OpenModalButton
+                  buttonText="Sign Up"
+                  modalComponent={<SignupFormModal />}
+                />
+              </li>
+              <li className="button-dropdown-item">
+                <OpenModalButton
+                  buttonText="Demo Login"
+                  modalComponent={<DemoUserModal />}
+                />
+              </li>
+
+            </>
         )}
+        </ul>
       </ul>
-      <hr></hr>
-    </>
+    </div>
   );
 }
 

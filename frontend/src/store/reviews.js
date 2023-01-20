@@ -2,7 +2,7 @@ import { csrfFetch } from "./csrf";
 
 const ADD_REVIEW = "review/add_review"
 const ALL_REVIEW = 'review/all_review'
-const DELETE_REVIEW = 'review/delete_reviews'
+const DELETE_REVIEW ='review/delete_reviews'
 export const addAReview = (review) => ({
     type: ADD_REVIEW,
     review
@@ -27,6 +27,7 @@ export const addAReviewThunk = (data, spotId) => async (dispatch) => {
 
     if (response.ok) {
         const review = await response.json()
+        console.log(review)
         dispatch(addAReview(review))
         return review
     }
@@ -35,7 +36,7 @@ export const addAReviewThunk = (data, spotId) => async (dispatch) => {
 export const allTheReviewsThunk = (spotId) => async (dispatch) => {
     const response = await csrfFetch(`/api/spots/${spotId}/reviews`);
 
-    if (response.ok) {
+    if(response.ok){
         const reviews = await response.json()
         dispatch(allTheReviews(reviews))
         return reviews
@@ -47,9 +48,9 @@ export const deleteReviewThunk = (reviewId) => async (dispatch) => {
         method: 'DELETE'
     })
 
-    if (response.ok) {
+    if(response.ok){
         const delReview = await response.json()
-        dispatch(deleteReview(delReview))
+        dispatch(deleteReview(reviewId))
         return delReview
     }
 }
@@ -62,18 +63,16 @@ const initialState = {
 export default function reviewReducer(state = initialState, action) {
     switch (action.type) {
         case ADD_REVIEW:
-            var newAllReviews = {...state.allReviews}
-            newAllReviews[action.review.id] = action.review;
-            return {...state, allReviews: newAllReviews }
+            return {...state, allReviews:{...state.allReviews, [action.review.id] : action.review}}
         case ALL_REVIEW:
             const allTheReviews = {}
             action.review.Reviews.forEach((review) => {
                 allTheReviews[review.id] = review
             })
-            return { ...state, allReviews: allTheReviews }
+            return {...state, allReviews: allTheReviews}
         case DELETE_REVIEW:
             const reviewDel = {
-                ...state
+                ...state, allReviews:{...state.allReviews}
             }
             delete reviewDel.allReviews[action.reviewId]
             return reviewDel
