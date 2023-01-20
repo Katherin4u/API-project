@@ -95,6 +95,7 @@ function ProfileButton({ user }) {
           </>
         )}
       </ul>
+      <hr></hr>
     </>
   );
 }

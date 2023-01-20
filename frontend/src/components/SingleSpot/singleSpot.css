@@ -1,35 +1,68 @@
-.main-container{
-    padding: 0px 32px;
+.main-container-single-spot {
+    padding-left: 25em;
+    padding-right: 25em;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 5px;
-    max-width: 1100px;
-    margin: 0 auto;
+    margin: 32px auto ;
 }
 
-.spot-name{
+.spot-name {
     font-size: 2em;
     font-weight: 500;
     margin: 8px;
 }
 
-.spot-address{
+.spot-address {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.info{
+.info {
     display: flex;
     flex-direction: row;
     gap: 10px;
     align-items: center;
 }
 
-.star-icon{
+.star-icon {
     font-size: 14px;
     font-weight: 600;
     margin: 0 4px;
+}
+
+.main-buttom-pic-div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.right-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.rating-date {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
+.rate-date{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.left-div-review {
+   border: black solid 2px
+}
+
+.names-delete-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 
