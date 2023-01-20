@@ -167,7 +167,7 @@ export default function CreateSpotModal() {
 
                         <button className="creatSpot-canceledit-button" onClick={(e) => close(e)}>
                             Cancel
-                        </button>                    \
+                        </button>                    
                     </form>
 
                 </div>

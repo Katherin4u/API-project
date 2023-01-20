@@ -47,7 +47,8 @@ const AllSpots = () => {
                         </div>
                         <div className="rating">
                             <span className="spot-rating" key={spot.id}>
-                                <i className="star">{spot.avgRating}</i>
+                                <i className='fas fa-star star-icon'></i>
+                                {spot.avgRating}
                             </span>
 
                         </div>
