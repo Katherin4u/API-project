@@ -6,12 +6,14 @@ import OpenModalMenuItem from './OpenModalMenuItem';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import DemoUserModal from "../demoUserModal";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation  } from "react-router-dom";
 import './Navigation.css'
 
 function ProfileButton({ user }) {
   // const spot = useSelector((state) => state.spots.singleSpot);
   const history = useHistory()
+  const location = useLocation();
+
   // const user = useSelector((state) => state.session);
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
@@ -49,6 +51,10 @@ function ProfileButton({ user }) {
     e.preventDefault();
     dispatch(sessionActions.logout());
     closeMenu();
+
+    if(location.pathname === '/spots/create') {
+      history.push('/')
+    }
   };
 
 
@@ -57,7 +63,7 @@ function ProfileButton({ user }) {
   return (
     <div>
       <button onClick={openMenu} className="profile-btn">
-        <i class="fa-sharp fa-solid fa-bars"></i>
+        <i className="fa-sharp fa-solid fa-bars"></i>
         <i className="fas fa-user-circle" />
       </button>
       <ul className={ulClassName} ref={ulRef}>

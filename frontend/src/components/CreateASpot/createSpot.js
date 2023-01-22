@@ -24,6 +24,10 @@ export default function CreateSpotModal() {
     const submit = async (e) => {
         e.preventDefault();
 
+        if (!user) {
+            return;
+        }
+
         if (errorValidations.length > 0) {
             setSubmitted(true)
             return;
@@ -78,15 +82,16 @@ export default function CreateSpotModal() {
 
     return (
         <div className="create-spot-main-div" style={{ width: '600px' }}>
-            <h1 className="Introduction">Create A Spot!</h1>
+            {user ? (<h1 className="Introduction">Create A Spot!</h1>) : (<h1 className="Introduction">
+                Log in to create a Spot!</h1>)}
             <div className="Spot-creation">
                 <div id="client-info">
-                    <ul className="errors-input">
-                        {submitted && errorValidations.map((error) => {
-                            return <li key={error}>{error}</li>
-                        })}
-                    </ul>
                     <form className="spot-form-submit" onSubmit={submit} style={{ border: 'black solid 2px', padding: '20px', borderRadius: '15px' }}>
+                        <ul className="errors-input">
+                            {submitted && errorValidations.map((error) => {
+                                return <li key={error}>{error}</li>
+                            })}
+                        </ul>
                         <div className="input-box">
                             <div className='name-before-input'>
                                 <label for="name" className="title-label" id="name-label">Name</label>
@@ -101,8 +106,7 @@ export default function CreateSpotModal() {
                         </div>
                         <div className="input-box">
                             <div className='name-before-input'>
-                                <label for="email" className="title-label" id="email-label">E-mail</label>
-
+                                <label for="Address" className="title-label" id="address-label">Address</label>
                             </div>
 
                             <input className="createSpot-address-input"
@@ -194,7 +198,7 @@ export default function CreateSpotModal() {
                                     Submit
                                 </button>
                             </div>
-                            <div  className="cancel-button">
+                            <div className="cancel-button">
                                 <button className="creatSpot-canceledit-button" onClick={(e) => close(e)}>
                                     Cancel
                                 </button>

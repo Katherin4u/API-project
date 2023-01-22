@@ -15,7 +15,9 @@ function Navigation({ isLoaded }) {
       <div className='nav'>
         <NavLink exact to="/">
           <span className='title'>
-          <i className="fa-regular fa-ghost"></i>
+              <i class="fa-solid fa-warehouse">
+              &nbsp;Airbnb-Dupe
+              </i>
           </span>
         </NavLink>
       </div>
