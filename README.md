@@ -3,7 +3,7 @@
 Airbnb-dupe is a website clone, inspired by AirBnb. Airbnb-dupe allows you to create a spot to rent, you are able to edit the spot, comment on other spots,
 as well as setting ratings for those spots.
 
-Live Site: https://airbnb-dupe.onrender.com
+Live Site: https://dupe-brb.onrender.com
 
 
 # Tech Stack
