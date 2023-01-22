@@ -1,11 +1,10 @@
 .main-spot-Container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 20px 40px;
+    display: grid;
+    grid-column-gap:10px;
+    grid-row-gap:1rem;
+    grid-template-columns: repeat(6, 1fr);
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    padding: 1rem 3rem;
 }
 
 .single-spot {
