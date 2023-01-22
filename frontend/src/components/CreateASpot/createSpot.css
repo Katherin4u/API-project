@@ -39,29 +39,29 @@
     border-radius: 8px;
 }
 
-.createSpot-price-input{
+.createSpot-price-input {
     margin: 2px 8px;
     height: 40px;
     border-radius: 8px;
 }
 
-.createSpot-previewImage-input{
+.createSpot-previewImage-input {
     margin: 2px 8px;
     height: 40px;
     border-radius: 8px;
 }
 
-.createSpot-description-input{
+.createSpot-description-input {
     margin: 2px 8px;
     height: 40px;
     border-radius: 8px;
 }
 
-.Introduction{
+.Introduction {
     text-align: start;
 }
 
-.createSpot-buttons{
+.createSpot-buttons {
     background: linear-gradient(45deg, #FF5A5F, #e31c5f 30%);
     color: #FFF;
     font-weight: 500;
@@ -74,11 +74,111 @@
     margin-right: 0;
 }
 
-.createSpot-buttons{
+.createSpot-buttons {
     border-radius: 10px;
     background-color: white;
 }
 
-.creatSpot-canceledit-button{
+.creatSpot-canceledit-button {
     background-color: #f5f5f5;
+}
+
+.create-spot-main-div {
+    width: 600px;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    padding-left: 47em;
+    padding-right: 47em;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+}
+
+.Introduction {
+    padding-left: 200px;
+    text-decoration: underline;
+}
+
+.input-box {
+    padding-right: 7rem;
+    display: flex;
+    justify-content: right;
+}
+
+.name-before-input {
+    padding-right: 20px;
+    padding-top: 15px;
+    display: flex;
+    width: 75px;
+}
+
+.button-divs {
+    display: flex;
+    flex-direction: column;
+    padding-left: 120px;
+    padding-right: 120px;
+}
+
+.submit-button {
+    padding-top: 20px;
+}
+
+.cancel-button {
+    padding-top: 20px;
+}
+
+.createSpot-submit-button{
+    background: linear-gradient(45deg, #FF5A5F, #e31c5f 30%);
+    color: #FFF;
+    font-weight: 500;
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    width: 100%;
+    bottom: 20px;
+    margin-right: 0;
+}
+
+.creatSpot-canceledit-button{
+    background: linear-gradient(45deg, #FF5A5F, #e31c5f 30%);
+    color: #FFF;
+    font-weight: 500;
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    width: 100%;
+    bottom: 20px;
+    margin-right: 0;
+}
+
+.createSpot-name-input{
+    width: 199px;
+}
+.createSpot-address-input{
+    width: 199px;
+}
+
+.createSpot-city-input{
+    width: 199px;
+}
+
+.createSpot-state-input{
+    width: 199px;
+}
+
+.createSpot-country-input{
+    width: 199px;
+}
+
+.createSpot-previewImage-input{
+    width: 199px;
+}
+
+.createSpot-price-input{
+    width: 199px;
+}
+
+.createSpot-description-input{
+    width: 199px;
 }

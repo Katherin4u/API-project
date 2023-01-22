@@ -27,7 +27,6 @@ export const addAReviewThunk = (data, spotId) => async (dispatch) => {
 
     if (response.ok) {
         const review = await response.json()
-        console.log(review)
         dispatch(addAReview(review))
         return review
     }

@@ -15,84 +15,103 @@ function SignupFormModal() {
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
-      setErrors([]);
-      return dispatch(sessionActions.signup({ email, username, firstName, lastName, password }))
-        .then(closeModal)
-        .catch(async (res) => {
-          const data = await res.json();
-          if (data && data.errors) setErrors(data.errors);
-        });
-    }
-    return setErrors(['Confirm Password field must be the same as the Password field']);
+    setErrors([]);
+    return await dispatch(sessionActions.signup({ email, username, firstName, lastName, password }))
+      .then(closeModal)
+      .catch(async (res) => {
+        const data = await res.json();
+        console.log(data)
+        if (data && data.errors) setErrors([...data.errors]);
+      });
+    } setErrors(['Passwords do not match'])
   };
 
   return (
-    <>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="main-signup-container">
+      <h1 className="signup-title">Sign Up</h1>
+      <form
+        className="form-input" onSubmit={handleSubmit}>
+        <h2 className="sign-up-title-webname">
+          Welcome to Airbnb-Dupe
+        </h2>
         <ul>
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+          {errors?.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
+        <div className="email-radius">
+          <label>
+
+            <input
+              placeholder="Email"
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="email-input"
+            />
+          </label>
+        </div>
         <label>
-          Email
+
           <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Username
-          <input
+            placeholder="Username"
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            required
+            className="username-input"
           />
         </label>
         <label>
-          First Name
           <input
+            placeholder='First Name'
             type="text"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
-            required
+            className="firstname-input"
           />
         </label>
         <label>
-          Last Name
+
           <input
+            placeholder='Last Name'
             type="text"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
-            required
+            className="lastname-input"
           />
         </label>
         <label>
-          Password
+
           <input
+            placeholder='Password'
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
+            className="password-input-signup"
           />
         </label>
-        <label>
-          Confirm Password
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Sign Up</button>
+        <div className="password-radius">
+          <label>
+            <input
+              placeholder="Confirm Password"
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              className="confirmpassword-input"
+            />
+          </label>
+
+        </div>
+        <span className="disclaimer-signup">
+          Disclaimer this is not the actual Airbnb website.
+        </span>
+        <div className="sign-up-submit-div">
+
+          <button className="signup-submit-button" type="submit">Sign Up</button>
+        </div>
       </form>
-    </>
+    </div>
   );
 }
 

@@ -14,6 +14,7 @@ const SingleSpot = () => {
     const reviews = Object.values(Allreviews)
 
     const dispatch = useDispatch();
+    const [keepImage, setKeepImage] = useState(false)
     const [reviewText, setReviewText] = useState('');
     const [rating, setRating] = useState(1);
     const [errorValidation, setErrorValidation] = useState([]);
@@ -34,14 +35,17 @@ const SingleSpot = () => {
         if (errorValidation.length > 0) setErrorValidation([])
         const data = { review: reviewText, stars: rating };
         dispatch(addAReviewThunk(data, spotId))
+            .then(() => {
+                setReviewText('')
+            })
         dispatch(detailedSpotThunk(spotId))
 
     }
 
     useEffect(() => {
-        dispatch(detailedSpotThunk(spotId))
         dispatch(allTheReviewsThunk(spotId))
-    }, [dispatch, spotId])
+        dispatch(detailedSpotThunk(spotId)).then(() => setKeepImage(true))
+    }, [dispatch, spotId, reviewText])
 
     const spotImage = (
         spot.SpotImages && spot.SpotImages.length > 0
@@ -64,10 +68,16 @@ const SingleSpot = () => {
     }
 
 
-
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+    const date = new Date();
+    const monthName = monthNames[date.getMonth()]
+    const year = date.getFullYear();
+    const currentDate = (`${monthName} ${year}`)
 
     if (!spot.id) return null;
-
+    if (!keepImage) return null
     return (
         <div className='main-container-single-spot'>
             <div className='top'>
@@ -77,7 +87,7 @@ const SingleSpot = () => {
                         <div className='rating-ontop'>
                             <i className='fas fa-star star-icon'></i>{spot.avgStarRating}
                         </div>
-                        <div className='numReview'>{spot.numReview} Reviews</div>
+                        <div className='numReview'>{reviews.length} Reviews</div>
                         <div>{spot.reviews}</div>
                         <div className='location-underline'>{spot.address}</div>
                         <div className='location-underline'>{spot.city}</div>
@@ -167,57 +177,75 @@ const SingleSpot = () => {
                 </div>
 
                 <div className='right-div'>
-                    <div className='rating-price'>
-                        <div className="price-rating-side-box">
-                            <div className="spot-description-price">{`$${spot.price} night`}</div>
-
-                            <div className="spot-details-rating">
-                                <i className="fas fa-star rating-color"></i>
-                                {!spot.avgStarRating
-                                    ? "" : spot.avgStarRating
-                                }
+                    <div className='reviewboxborder'>
+                        <div className='rating-price'>
+                            <div className="price-rating-side-box">
+                                <div className='price-night'>
+                                    <div className="spot-description-price">{`$${spot.price}`}</div>
+                                    <div className='night'>
+                                        night
+                                    </div>
+                                </div>
+                                <div className="spot-details-rating">
+                                    <i className="fas fa-star rating-color"></i>
+                                    {!spot.avgStarRating
+                                        ? "" : spot.avgStarRating
+                                    }
+                                    <div className='num-of-reviews'>
+                                        <div className='numReview-bottom-spot-2'>{`${reviews.length} Reviews`}</div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <form className='add-review' onSubmit={submit}>
-                        <h4>Enter Review Here</h4>
-                        {errorValidation.length > 0 && (
-                            <ul>
-                                {errorValidation.map((error, index) => (
-                                    <li key={index}>{error}</li>
-                                ))}
-                            </ul>
-                        )}
-                        <div className='input-review'>
-                            <textarea
-                                rows="3"
-                                cols="3"
-                                placeholder="Enter Review"
-                                onChange={(e) => setReviewText(e.target.value)}
-                                value={reviewText}
-                            ></textarea>
-                            <select onChange={(e) => setRating(e.target.value)}>
-                                <option value={1}>1</option>
-                                <option value={2}>2</option>
-                                <option value={3}>3</option>
-                                <option value={4}>4</option>
-                                <option value={5}>5</option>
-                            </select>
-                            <button className='review-submit-button' type='submit'>
-                                Submit
-                            </button>
                         </div>
-                    </form>
+
+                        <form className='add-review' onSubmit={submit}>
+                            <h4 className='enter-here'>Enter Review Here</h4>
+                            {errorValidation.length > 0 && (
+                                <ul>
+                                    {errorValidation.map((error, index) => (
+                                        <li key={index}>{error}</li>
+                                    ))}
+                                </ul>
+                            )}
+                            <div className='input-review'>
+                                <div className='textarea'>
+                                    <textarea
+                                        rows="6"
+                                        cols="25"
+                                        placeholder="Enter Review"
+                                        onChange={(e) => setReviewText(e.target.value)}
+                                        value={reviewText}
+                                    ></textarea>
+                                </div>
+                                <div className='select'>
+                                    <div className='select-rating'> Select Rating</div>
+                                    <select onChange={(e) => setRating(e.target.value)}>
+                                        <option value={1}>1</option>
+                                        <option value={2}>2</option>
+                                        <option value={3}>3</option>
+                                        <option value={4}>4</option>
+                                        <option value={5}>5</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div className='button-padding'>
+                                <button className='review-submit-button' type='submit'>
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
 
             </div>
             <div className='all-reviews-div'>
                 <div className='reviewbox-rating-reviews'>
-                <div className='buttom-spot-rating'>
-                    <i className='fas fa-star star-icon'></i>{spot.avgStarRating}
-                </div>
-                <div className='numReview-bottom-spot'>{spot.numReview} Reviews</div>
+                    <div className='buttom-spot-rating'>
+                        <i className='fas fa-star star-icon'></i>{spot.avgStarRating}
+                    </div>
+                    <div className='numReview-bottom-spot'>{reviews.length} Reviews</div>
 
                 </div>
                 <div className='review-main'>
@@ -226,26 +254,40 @@ const SingleSpot = () => {
                             <div className='user-review-div'>
                                 <div className='left-div-review'>
                                     <div className='names-delete-button'>
-                                        <div className='first-and-lastname'>
-                                            {user.user.firstName}
-                                            {user.user.lastName}
-                                        </div>
                                         {user.user?.id === rev.userId && (
                                             <div className='review-delete'>
-                                                <button
-                                                    onClick={(e) => deleteRevButton(e, rev.id)}
-                                                    className='button-delete'
-                                                >
-                                                    <i className="fa-solid fa-trash"></i>
-                                                </button>
+                                                <div className='three'>
+                                                </div>
+                                                <div>
+                                                    <button
+                                                        onClick={(e) => deleteRevButton(e, rev.id)}
+                                                        className='button-delete'
+                                                    >
+                                                        <i className="fa-solid fa-trash"></i>
+                                                    </button>
+                                                </div>
                                             </div>
                                         )}
+                                        <div className='first-and-lastname'>
+                                            <div className='firstname-lastname-font'>
+                                            <i className="fas fa-user-circle" />
+                                                <div className='firstName'>
+                                                    {rev.User?.firstName}
+                                                </div>
+                                                <div className='lastName'>
+                                                    {rev.User?.lastName}
+
+                                                </div>
+                                            </div>
+                                            <div className='two'>
+                                                <div className='rate-date'>
+                                                    <div> {currentDate}</div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <br></br>
                                     <div className='rating-date'>
-                                        <div className='rate-date'>
-                                            <div> {rev.createdAt}</div>
-                                        </div>
                                         <div className='user-review'>
                                             {rev.review}
                                         </div>

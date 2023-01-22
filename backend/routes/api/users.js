@@ -23,7 +23,7 @@ const router = express.Router();
 
 const validateSignup = [
     check('email')
-        .exists({ checkFalsy: true })
+        // .exists({ checkFalsy: true })
         .isEmail()
         .withMessage("Invalid email"),
     check('firstName')
@@ -33,11 +33,11 @@ const validateSignup = [
         .exists({ checkFalsy: true })
         .withMessage("Last Name is required"),
     check('username')
-        .not()
-        .isEmail()
+        // .isEmail()
+        .exists({ checkFalsy: true })
         .withMessage("Username is required"),
     check('password')
-        .exists({ checkFalsy: true })
+        // .exists({ checkFalsy: true })
         .isLength({ min: 6 })
         .withMessage('Password must be 6 characters or more.'),
     handleValidationErrors
@@ -74,7 +74,7 @@ router.post("/", validateSignup, async (req, res) => {
     user.token = token;
 
 
-    return res.json(user);
+    return res.json({user: user});
 });
 
 module.exports = router;

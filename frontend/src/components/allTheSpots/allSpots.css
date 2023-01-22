@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     gap: 20px 40px;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
 }
 
 .single-spot {
@@ -16,6 +17,9 @@
     height: 300px;
 }
 
+single-spot:hover {
+    cursor: pointer;
+}
 .spot-image {
     height: 200px;
 }
