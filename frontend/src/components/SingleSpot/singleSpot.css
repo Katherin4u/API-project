@@ -231,6 +231,12 @@
 
 }
 
+.all-reviews-div {
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 25rem;
+}
+
 .input-review {
     display: flex;
     flex-direction: column;

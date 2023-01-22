@@ -23,13 +23,15 @@ const AllSpots = () => {
     function randomNumber(max, min) {
         return ((max - min) * 100) % 500;
     }
+    const altImg = "https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg"
 
     return (
         <div className="main-spot-Container">
             {spots.map((spot) => (
                 <div className="single-spot" onClick={(e) => spotClick(e, spot.id)} key={spot.id}>
                     <div className="spot-image">
-                        <img className="image" src={spot.previewImage} alt={`spot#${spot.id}`} />
+                        <img className="image" src={spot.previewImage ? spot.previewImage : altImg} alt={spot.id}
+                        />
                     </div>
                     <div className="information-box">
                         <div className="info">

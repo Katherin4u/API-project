@@ -50,9 +50,9 @@ export default function CreateSpotModal() {
                 preview: true,
             };
             await dispatch(addSpotImageThunk(image, createdSpot.id));
-            const id = createdSpot.id;
-            history.push(`/spots/${id}`);
         }
+        const id = createdSpot.id;
+        history.push(`/spots/${id}`);
 
 
     }
@@ -71,7 +71,6 @@ export default function CreateSpotModal() {
         if (country.length === 0) errors.push('Country is required')
         if (price <= 0) errors.push('Price per day is required')
         if (description.length === 0) errors.push('Description is required')
-
         setErrorValidations(errors)
     }, [name, address, city, state, country, price, description])
 

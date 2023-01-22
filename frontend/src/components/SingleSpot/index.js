@@ -78,6 +78,9 @@ const SingleSpot = () => {
 
     if (!spot.id) return null;
     if (!keepImage) return null
+
+    const altImg = "https://t3.ftcdn.net/jpg/04/34/72/82/360_F_434728286_OWQQvAFoXZLdGHlObozsolNeuSxhpr84.jpg"
+
     return (
         <div className='main-container-single-spot'>
             <div className='top'>
@@ -113,15 +116,10 @@ const SingleSpot = () => {
                         </div>
                     )}
                 </div>
-                {spotImage && (
-                    <div className="spot-images-div">
-                        {spot.SpotImages.map((image) => {
-                            return (
-                                <img key={`image-${image.id}`} className={'single-image'} src={image.url} alt="" />
-                            );
-                        })}
-                    </div>
-                )}
+                <div className="spot-images-div">
+                    <img className="single-image" src={spotImage ? spot.SpotImages[0].url : altImg} alt={spot.id}
+                    />
+                </div>
             </div>
             <div className='main-buttom-pic-div'>
                 <div className='left-div'>
@@ -270,7 +268,7 @@ const SingleSpot = () => {
                                         )}
                                         <div className='first-and-lastname'>
                                             <div className='firstname-lastname-font'>
-                                            <i className="fas fa-user-circle" />
+                                                <i className="fas fa-user-circle" />
                                                 <div className='firstName'>
                                                     {rev.User?.firstName}
                                                 </div>
