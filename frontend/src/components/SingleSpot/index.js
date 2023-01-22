@@ -45,7 +45,7 @@ const SingleSpot = () => {
     useEffect(() => {
         dispatch(allTheReviewsThunk(spotId))
         dispatch(detailedSpotThunk(spotId)).then(() => setKeepImage(true))
-    }, [dispatch, spotId, reviewText])
+    }, [dispatch, spotId, reviewText, rating])
 
     const spotImage = (
         spot.SpotImages && spot.SpotImages.length > 0
@@ -62,9 +62,12 @@ const SingleSpot = () => {
         history.push('/')
     }
 
-    const deleteRevButton = (e, reviewId) => {
+    const deleteRevButton = async (e, reviewId) => {
         e.preventDefault()
         dispatch(deleteReviewThunk(reviewId))
+            .then(() => {
+                setRating(1);
+            })
     }
 
 
@@ -88,7 +91,7 @@ const SingleSpot = () => {
                 <div className='spot-address'>
                     <div className='info'>
                         <div className='rating-ontop'>
-                            <i className='fas fa-star star-icon'></i>{spot.avgStarRating}
+                            <i className='fas fa-star star-icon'></i>{spot.avgStarRating ? spot.avgStarRating.toFixed(1) : '0'}
                         </div>
                         <div className='numReview'>{reviews.length} Reviews</div>
                         <div>{spot.reviews}</div>
@@ -186,8 +189,7 @@ const SingleSpot = () => {
                                 </div>
                                 <div className="spot-details-rating">
                                     <i className="fas fa-star rating-color"></i>
-                                    {!spot.avgStarRating
-                                        ? "" : spot.avgStarRating
+                                    {spot.avgStarRating ? spot.avgStarRating.toFixed(1) : '0'
                                     }
                                     <div className='num-of-reviews'>
                                         <div className='numReview-bottom-spot-2'>{`${reviews.length} Reviews`}</div>
@@ -241,7 +243,7 @@ const SingleSpot = () => {
             <div className='all-reviews-div'>
                 <div className='reviewbox-rating-reviews'>
                     <div className='buttom-spot-rating'>
-                        <i className='fas fa-star star-icon'></i>{spot.avgStarRating}
+                        <i className='fas fa-star star-icon'></i>{spot.avgStarRating ? spot.avgStarRating.toFixed(1) : '0'}
                     </div>
                     <div className='numReview-bottom-spot'>{reviews.length} Reviews</div>
 

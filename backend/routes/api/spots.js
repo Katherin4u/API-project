@@ -169,7 +169,7 @@ router.get("/", allSpotValidation, async (req, res, next) => {
         return {
             ...rest,
             previewImage,
-            avgRating: avgRating.toFixed(2),
+            avgRating: avgRating.toFixed(1),
         };
     });
 
