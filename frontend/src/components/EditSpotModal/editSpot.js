@@ -101,7 +101,7 @@ const EditSpotModal = () => {
                     <input className="editSpot-name"
                         type='text'
                         value={name}
-                        placeHolder='Edit Name'
+                        placeholder='Edit Name'
                         onChange={(e) => setName(e.target.value)} />
                 </div>
                 <div className="input-box">
@@ -109,7 +109,7 @@ const EditSpotModal = () => {
                     <input className="editSpot-address"
                         type='text'
                         value={address}
-                        placeHolder='Edit Address'
+                        placeholder='Edit Address'
                         onChange={(e) => setAddress(e.target.value)} />
                 </div>
                 <div className="input-box">
@@ -117,7 +117,7 @@ const EditSpotModal = () => {
                     <input className="editSpot-city"
                         type='text'
                         value={city}
-                        placeHolder='Edit City'
+                        placeholder='Edit City'
                         onChange={(e) => setCity(e.target.value)} />
                 </div>
                 <div className="input-box">
@@ -126,7 +126,7 @@ const EditSpotModal = () => {
                         className="editSpot-state"
                         type='text'
                         value={state}
-                        placeHolder='Edit State'
+                        placeholder='Edit State'
                         onChange={(e) => setState(e.target.value)} />
                 </div>
                 <div className="input-box">
@@ -135,7 +135,7 @@ const EditSpotModal = () => {
                         className="editSpot-country"
                         type='text'
                         value={country}
-                        placeHolder='Edit Country'
+                        placeholder='Edit Country'
                         onChange={(e) => setCountry(e.target.value)} />
                 </div>
                 <div className="input-box">
@@ -144,14 +144,14 @@ const EditSpotModal = () => {
                         className="editSpot-description"
                         type='text'
                         value={description}
-                        placeHolder='Edit Description'
+                        placeholder='Edit Description'
                         onChange={(e) => setDescription(e.target.value)} />
                 </div>
                 <div className="input-box">
                     <label for="number" className="title-label" id="number-label">Edit Price</label>
                     <input className="editSpot-price"
                         type='text'
-                        placeHolder='Edit Price'
+                        placeholder='Edit Price'
                         value={price}
                         onChange={(e) => setPrice(e.target.value)} />
                 </div>

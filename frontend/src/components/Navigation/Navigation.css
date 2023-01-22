@@ -6,12 +6,13 @@
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid rgb(231, 230, 230);
-    padding: 8px;
+    padding: 20px;
     align-items: center;
     position: sticky;
     top: 0;
     z-index: 999;
     background: white;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
 }
 
 .nav {
@@ -34,11 +35,11 @@
 .list-profile-dropdown{
     display: flex;
     flex-direction: column;
-    position: absolute;
+    position: relative;
     align-items: flex-start;
     background-color: #FFF;
-    top: 40px;
-    right: 0px;
+    top: -5px;
+    right: 211px;
     box-shadow: 0px 0px 14px 0.5px rgba(221, 221, 221, 0.7);
     border-radius: 15px;
     padding: 15px;
@@ -55,14 +56,13 @@
     box-sizing: border-box;
     border-radius: 21px;
     border: 1px solid #cccccc;
-    height: 35px;
-    width: 58px;
+    height: 40px;
+    width: 72px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     background: #ffffff;
     cursor: pointer;
     align-items: center;
-    justify-content: center;
     position: relative;
     
 }
@@ -83,4 +83,65 @@
 
 .button-dropdown-item:hover{
     background-color:  #f5f5f5;
+}
+
+.button-div{
+    position: absolute;
+    height: 40px;
+    width: 58px;
+    background: #ffffff;
+    padding-bottom: 5px; 
+}
+
+.user-username{
+    padding-left: 15px;
+}
+
+.user-first-last-name{
+    padding-left: 15px;
+    padding-top: 10px;
+}
+
+.user-email{
+    padding-left: 15px;
+    padding-top: 10px;
+}
+
+.logout-btn{
+    padding-left: 15px;
+    padding-top: 10px;
+}
+
+.create-btn{
+    padding-left: 15px;
+    padding-top: 10px;
+}
+
+.username{
+    display: flex;
+    font-weight: bold;
+}
+
+.user-username{
+    display: flex;
+}
+
+.first-last-div{
+    display: flex;
+}
+
+.first-last{
+    font-weight: bold;
+    padding-top: 10px;
+    padding-left: 15px;
+}
+
+.email-div{
+    display: flex;
+}
+
+.email{
+    font-weight: bold;
+    padding-top: 10px;
+    padding-left: 15px;
 }

@@ -78,7 +78,7 @@ export default function CreateSpotModal() {
 
 
     return (
-        <div style={{ width: '600px' }}>
+        <div className="create-spot-main-div" style={{ width: '600px' }}>
             <h1 className="Introduction">Create A Spot!</h1>
             <div className="Spot-creation">
                 <div id="client-info">
@@ -89,7 +89,10 @@ export default function CreateSpotModal() {
                     </ul>
                     <form className="spot-form-submit" onSubmit={submit} style={{ border: 'black solid 2px', padding: '20px', borderRadius: '15px' }}>
                         <div className="input-box">
-                            <label for="name" className="title-label" id="name-label">Name</label>
+                            <div className='name-before-input'>
+                                <label for="name" className="title-label" id="name-label">Name</label>
+                            </div>
+
                             <input className="createSpot-name-input"
                                 maxLength={50}
                                 type='text'
@@ -98,7 +101,11 @@ export default function CreateSpotModal() {
                                 onChange={(e) => setName(e.target.value)} />
                         </div>
                         <div className="input-box">
-                            <label for="email" className="title-label" id="email-label">E-mail</label>
+                            <div className='name-before-input'>
+                                <label for="email" className="title-label" id="email-label">E-mail</label>
+
+                            </div>
+
                             <input className="createSpot-address-input"
                                 type='text'
                                 placeholder="Address"
@@ -106,7 +113,11 @@ export default function CreateSpotModal() {
                                 onChange={(e) => setAddress(e.target.value)} />
                         </div>
                         <div className="input-box">
-                            <label for="number" className="title-label" id="number-label">City</label>
+                            <div className='name-before-input'>
+                                <label for="number" className="title-label" id="number-label">City</label>
+
+                            </div>
+
                             <input className="createSpot-city-input"
                                 type='text'
                                 placeholder="City"
@@ -114,7 +125,11 @@ export default function CreateSpotModal() {
                                 onChange={(e) => setCity(e.target.value)} />
                         </div>
                         <div className="input-box">
-                            <label for="number" className="title-label" id="number-label">State</label>
+                            <div className='name-before-input'>
+                                <label for="number" className="title-label" id="number-label">State</label>
+
+                            </div>
+
                             <input
                                 className="createSpot-state-input"
                                 type='text'
@@ -123,7 +138,10 @@ export default function CreateSpotModal() {
                                 onChange={(e) => setState(e.target.value)} />
                         </div>
                         <div className="input-box">
-                            <label for="number" className="title-label" id="number-label">Country</label>
+                            <div className='name-before-input'>
+                                <label for="number" className="title-label" id="number-label">Country</label>
+
+                            </div>
                             <input
                                 className="createSpot-country-input"
                                 type='text'
@@ -132,7 +150,10 @@ export default function CreateSpotModal() {
                                 onChange={(e) => setCountry(e.target.value)} />
                         </div>
                         <div className="input-box">
-                            <label for="number" className="title-label" id="number-label">Image</label>
+                            <div className='name-before-input'>
+                                <label for="number" className="title-label" id="number-label">Image</label>
+
+                            </div>
                             <input
                                 className="createSpot-previewImage-input"
                                 type='url'
@@ -144,7 +165,11 @@ export default function CreateSpotModal() {
                                 }} />
                         </div>
                         <div className="input-box">
-                            <label for="number" className="title-label" id="number-label">Price</label>
+                            <div className='name-before-input'>
+                                <label for="number" className="title-label" id="number-label">Price</label>
+
+                            </div>
+
                             <input className="createSpot-price-input"
                                 type='text'
                                 placeholder="Price"
@@ -152,7 +177,11 @@ export default function CreateSpotModal() {
                                 onChange={(e) => setPrice(e.target.value)} />
                         </div>
                         <div className="input-box">
-                            <label for="number" className="title-label" id="number-label">Description</label>
+                            <div className='name-before-input'>
+                                <label for="number" className="title-label" id="number-label">Description</label>
+
+                            </div>
+
                             <input
                                 className="createSpot-description-input"
                                 type='text'
@@ -160,14 +189,19 @@ export default function CreateSpotModal() {
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)} />
                         </div>
+                        <div className="button-divs">
+                            <div className="submit-button">
+                                <button type='submit' className='createSpot-submit-button'>
+                                    Submit
+                                </button>
+                            </div>
+                            <div  className="cancel-button">
+                                <button className="creatSpot-canceledit-button" onClick={(e) => close(e)}>
+                                    Cancel
+                                </button>
+                            </div>
 
-                        <button type='submit' className='createSpot-submit-button'>
-                            Submit
-                        </button>
-
-                        <button className="creatSpot-canceledit-button" onClick={(e) => close(e)}>
-                            Cancel
-                        </button>                    
+                        </div>
                     </form>
 
                 </div>

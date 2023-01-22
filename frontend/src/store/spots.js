@@ -131,7 +131,9 @@ export default function spotReducer(state = initialState, action) {
             return { ...state, allSpots: allTheSpots }
         }
         case SINGLE_SPOT:
-            return { ...state, singleSpot: action.spot }
+            const newState = {...state, singleSpot: {}}
+            newState.singleSpot = action.spot 
+            return newState
         case CREATE_SPOT:
             return {
                 ...state,

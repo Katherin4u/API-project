@@ -8,20 +8,28 @@ import './Navigation.css';
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
 
+
+
   return (
     <div className='nav-main'>
-        <div className='nav'>
-          <NavLink exact to="/">
-          <span className='title'>Airbnb-Dupe</span>
-          </NavLink>
+      <div className='nav'>
+        <NavLink exact to="/">
+          <span className='title'>
+          <i className="fa-regular fa-ghost"></i>
+          </span>
+        </NavLink>
+      </div>
+      <div className='nav-three'>
+        <div className='button-div'>
+          {isLoaded && (
+            <ProfileButton user={sessionUser}
+            />
+          )}
+
         </div>
-        <div className='nav-three'>
-        {isLoaded && (
-            <ProfileButton user={sessionUser} />
-        )}
-        </div>
+      </div>
     </div>
-    
+
   );
 }
 

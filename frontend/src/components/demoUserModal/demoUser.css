@@ -1,0 +1,72 @@
+.demo-login{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-bottom: solid lightgray 2px;
+    padding-bottom: 15px;
+}
+
+.email-password-input{
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.demoUser-email-username{
+    height: 50px;
+    width: 30em;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.demouser-title-webname{
+    padding-bottom: 20px;
+    padding-left: 35px;
+}
+
+.email-username-demo-div{
+    display: flex;
+    align-self: center;
+}
+
+.password-demo-div{
+    display: flex;
+    align-self: center;
+}
+
+
+.disclaimer-demo{
+    padding-left: 35px;
+    padding-top: 7px;  
+}
+
+.button-style-demouser{
+    padding-left: 35px;
+    padding-top: 60px;
+    padding-right: 35px;
+}
+
+.password-demouser{
+    height: 50px;
+    width: 30em;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.submit-demouser-button{
+    background: linear-gradient(45deg, #FF5A5F, #e31c5f 30%);
+    color: #FFF;
+    font-weight: 500;
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    width: 100%;
+    bottom: 20px;
+    margin-right: 0;
+    height: 45px;
+}
+
+.demo-container{
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+}

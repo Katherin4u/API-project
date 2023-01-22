@@ -19,31 +19,33 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="main-container">
-      <Navigation isLoaded={isLoaded} />
-      <main id='Content' >
-        {isLoaded && (
-          <Switch>
-            <Route path="/spots/:spotId/edit">
-              <EditSpotModal />
-            </Route>
-             <Route path="/spots/create">
-              <CreateSpot />
-            </Route>
-            <Route path='/spots/:spotId'>
-              <SingleSpot />
-            </Route>
-            <Route path='/spots'>
-              <AllSpots />
-            </Route>
-            <Route exact path='/'>
-              <AllSpots />
-            </Route>
-          </Switch>
-        )}
-      </main>
+    <>
+      <div className="main-container">
+        <Navigation isLoaded={isLoaded} />
+        <main id='Content' >
+          {isLoaded && (
+            <Switch>
+              <Route path="/spots/:spotId/edit">
+                <EditSpotModal />
+              </Route>
+              <Route path="/spots/create">
+                <CreateSpot />
+              </Route>
+              <Route path='/spots/:spotId'>
+                <SingleSpot />
+              </Route>
+              <Route path='/spots'>
+                <AllSpots />
+              </Route>
+              <Route exact path='/'>
+                <AllSpots />
+              </Route>
+            </Switch>
+          )}
+        </main>
 
-    </div>
+      </div>
+    </>
   );
 }
 

@@ -1,0 +1,72 @@
+.login-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-bottom: solid lightgray 2px;
+    padding-bottom: 15px;
+}
+
+.password-usernameoremail {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.email-username-input {
+    display: flex;
+    align-self: center;
+}
+
+.password-input {
+    display: flex;
+    align-self: center;
+}
+
+.button-style {
+    padding-left: 35px;
+    padding-top: 60px;
+    padding-right: 35px;
+}
+
+.demo-input-email-password {
+    height: 50px;
+    width: 30em;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.demo-input {
+    height: 50px;
+    width: 30em;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.submit-login-button {
+    background: linear-gradient(45deg, #FF5A5F, #e31c5f 30%);
+    color: #FFF;
+    font-weight: 500;
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    width: 100%;
+    bottom: 20px;
+    margin-right: 0;
+    height: 45px;
+
+}
+
+.login-title-webname{
+    padding-bottom: 20px;
+    padding-left: 35px;
+}
+
+.disclaimer{
+    padding-left: 35px;
+    padding-top: 7px;
+}
+
+.main-login-container{
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+}
