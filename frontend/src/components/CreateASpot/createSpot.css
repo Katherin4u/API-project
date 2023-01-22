@@ -57,10 +57,6 @@
     border-radius: 8px;
 }
 
-.Introduction {
-    text-align: start;
-}
-
 .createSpot-buttons {
     background: linear-gradient(45deg, #FF5A5F, #e31c5f 30%);
     color: #FFF;
@@ -94,7 +90,7 @@
 }
 
 .Introduction {
-    padding-left: 200px;
+    text-align: center;
     text-decoration: underline;
 }
 

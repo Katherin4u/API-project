@@ -77,8 +77,7 @@ const validateSpot = [
     check("price")
         .exists({ checkFalsy: true })
         .not()
-        // .isInt({ min: 1 })
-        // .isNumeric()
+        .isNumeric()
         .withMessage("Price per day is required"),
     handleValidationErrors,
 ]
@@ -123,7 +122,7 @@ const allSpotValidation = [
         .optional()
         .exists({ checkFalsy: true })
         .isFloat({ min: 0 })
-        .withMessage("Maximum price must be greater than or equal to 0"),
+        .withMessage("Maximum price must be greater than or equal to 10000"),
     handleValidationErrors,
 ];
 

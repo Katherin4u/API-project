@@ -12,13 +12,11 @@ const SingleSpot = () => {
     const user = useSelector((state) => state.session)
     const Allreviews = useSelector((state) => state.reviews.allReviews)
     const reviews = Object.values(Allreviews)
-
     const dispatch = useDispatch();
     const [keepImage, setKeepImage] = useState(false)
     const [reviewText, setReviewText] = useState('');
     const [rating, setRating] = useState(1);
     const [errorValidation, setErrorValidation] = useState([]);
-
 
     const submit = async (e) => {
         e.preventDefault()
@@ -34,12 +32,10 @@ const SingleSpot = () => {
 
         if (errorValidation.length > 0) setErrorValidation([])
         const data = { review: reviewText, stars: rating };
-        dispatch(addAReviewThunk(data, spotId))
+        await dispatch(addAReviewThunk(data, spotId))
             .then(() => {
                 setReviewText('')
             })
-        dispatch(detailedSpotThunk(spotId))
-
     }
 
     useEffect(() => {
@@ -64,10 +60,11 @@ const SingleSpot = () => {
 
     const deleteRevButton = async (e, reviewId) => {
         e.preventDefault()
-        dispatch(deleteReviewThunk(reviewId))
+        await dispatch(deleteReviewThunk(reviewId))
             .then(() => {
-                setRating(1);
+                dispatch(detailedSpotThunk(spotId))
             })
+
     }
 
 
@@ -198,7 +195,6 @@ const SingleSpot = () => {
                             </div>
 
                         </div>
-
                         <form className='add-review' onSubmit={submit}>
                             <h4 className='enter-here'>Enter Review Here</h4>
                             {errorValidation.length > 0 && (
@@ -230,11 +226,13 @@ const SingleSpot = () => {
 
                                 </div>
                             </div>
-                            <div className='button-padding'>
-                                <button className='review-submit-button' type='submit'>
-                                    Submit
-                                </button>
-                            </div>
+                            {user.user && (
+                                <div className='button-padding'>
+                                    <button className='review-submit-button' type='submit'>
+                                        Submit
+                                    </button>
+                                </div>
+                            )}
                         </form>
                     </div>
                 </div>

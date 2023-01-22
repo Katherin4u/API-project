@@ -167,17 +167,14 @@
 
 }
 
-/* .review-main {
-    border-style: solid;
-} */
-
-.review-delete {
-    display: flex;
-}
-
 .review-delete {
     display: flex;
     justify-content: space-between;
+    padding: 0px 15px;
+}
+
+.review-delete button {
+    cursor: pointer;
 }
 
 .reviewboxborder {
