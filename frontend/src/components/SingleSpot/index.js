@@ -145,7 +145,7 @@ const SingleSpot = () => {
                         </div>
                         <div className='user-description-div'>
                             <div className='monica'>
-                                Monica is a Superhost
+                                ${spot?.Owner.firstName} is a Superhost
 
                             </div>
                             <div className='user-description'>

@@ -2,7 +2,7 @@
     display: grid;
     grid-column-gap:10px;
     grid-row-gap:1rem;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
     padding: 1rem 0rem 1rem 3rem;
 }
@@ -12,8 +12,8 @@
     flex-direction: column;
     margin-top: 16px;
     border-radius: 8px;
-    width: 285px;
-    height: 400px;
+    width: 345px;
+    height: 425px;
 }
 
 .single-spot:hover {
