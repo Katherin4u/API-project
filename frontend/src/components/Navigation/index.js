@@ -16,7 +16,7 @@ function Navigation({ isLoaded }) {
         <NavLink exact to="/">
           <span className='title'>
               <i class="fa-solid fa-warehouse">
-              &nbsp;Airbnb-Dupe
+              &nbsp;Brb-dupe
               </i>
           </span>
         </NavLink>
