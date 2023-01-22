@@ -6,7 +6,7 @@ import OpenModalMenuItem from './OpenModalMenuItem';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import DemoUserModal from "../demoUserModal";
-import { useHistory, useLocation  } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import './Navigation.css'
 
 function ProfileButton({ user }) {
@@ -52,7 +52,7 @@ function ProfileButton({ user }) {
     dispatch(sessionActions.logout());
     closeMenu();
 
-    if(location.pathname === '/spots/create') {
+    if (location.pathname === '/spots/create') {
       history.push('/')
     }
   };
@@ -70,34 +70,37 @@ function ProfileButton({ user }) {
         <ul className="list-profile-dropdown">
           {user && sessionUser ? (
             <div>
-              <div className="user-username">
-                <div className="username">
-                  Username:
+              <div className="userInformation">
+                <div className="user-username">
+                  <div className="username">
+                    Username:
+                  </div>
+                  <li className="user-username">{user.username}</li>
                 </div>
-                <li className="user-username">{user.username}</li>
-              </div>
-              <div className="first-last-div">
+                {/* <div className="first-last-div">
                 <div className="first-last">
-                  Name:
+                Name:
                 </div>
                 <li className="user-first-last-name">{user.firstName} {user.lastName}</li>
-              </div>
-              <div className="email-div">
-                <div className="email">
-                  Email:
+              </div> */}
+                <div className="email-div">
+                  <div className="email">
+                    Email:
+                  </div>
+                  <li className="user-email">{user.email}</li>
                 </div>
-                <li className="user-email">{user.email}</li>
               </div>
-              <li className='logout-btn'>
-                <button onClick={logout}>Log Out</button>
-              </li>
-              <li className="create-btn">
-                <button onClick={(e) => handleCreateSpot(e)}
-                  className="createSpot-button"
-                >
-                  Create Spot
-                </button>
-              </li>
+              <div className="lastTwo">
+                <li className='logout-btn'>
+                  <button onClick={(e) => handleCreateSpot(e)} className='createSpotButton'>
+                    Create Spot
+                  </button>
+                </li>
+                <li className="create-btn">
+                  <button className='createSpotButton' onClick={logout}>Log Out</button>
+                </li>
+
+              </div>
             </ div>
           ) : (
             <>

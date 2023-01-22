@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react"
+import { cloneElement, useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { detailedSpotThunk, editSpotThunk } from "../../store/spots";
 import { useHistory, useParams } from "react-router-dom";
-
+import '../CreateASpot/createSpot.css'
 
 
 const EditSpotModal = () => {
@@ -65,7 +65,7 @@ const EditSpotModal = () => {
     }, [name, address, city, state, country, price, description])
 
     useEffect(() => {
-        // dispatch(detailedSpotThunk(spotId))
+        dispatch(detailedSpotThunk(spotId))
 
         if (Object.keys(spot).length > 0) {
             const { name, address, city, state, country, price, description } = spot
@@ -82,7 +82,7 @@ const EditSpotModal = () => {
     // if (!spot.id) return null;
 
     return (
-        <div>
+        <div style={{alignItems: "center", display:'flex', flexDirection: 'column'}}>
             <h1 className="editSpot-Introduction">Edit your spot!</h1>
             <div id='editSpot-container'>
                 {submitted && errorValidation.length > 0 && (
@@ -95,72 +95,105 @@ const EditSpotModal = () => {
                     </div>
                 )}
             </div>
-            <form className="editSpot-inputs" onSubmit={submitChanges} style={{ border: 'black solid 2px', padding: '20px', borderRadius: '15px' }}>
-                <div className="input-box">
-                    <label for="name" className="title-label" id="name-label">Edit Name</label>
-                    <input className="editSpot-name"
-                        type='text'
-                        value={name}
-                        placeholder='Edit Name'
-                        onChange={(e) => setName(e.target.value)} />
+            <div className="create-spot-main-div" style={{ width: '600px' }}>
+
+                <div className="Spot-creation" style={{ border: 'black solid 2px', padding: '20px', borderRadius: '15px' }}>
+
+                    <div id="client-info">
+                        <form className="spot-form-submit" onSubmit={submitChanges}>
+                            <div className="input-box">
+                                <div className='name-before-input'>
+                                    <label for="name" className="title-label" id="name-label">Edit Name</label>
+                                </div>
+                                {/* <label for="name" className="title-label" id="name-label">Edit Name</label> */}
+                                <input className="createSpot-name-input"
+                                    type='text'
+                                    value={name}
+                                    placeholder='Edit Name'
+                                    onChange={(e) => setName(e.target.value)} />
+                            </div>
+                            <div className="input-box">
+                                {/* <label for="email" className="title-label" id="email-label">Edit Address</label> */}
+                                <div className='name-before-input'>
+                                    <label for="Address" className="title-label" id="address-label">Edit Address</label>
+                                </div>
+                                <input className="createSpot-address-input"
+                                    type='text'
+                                    value={address}
+                                    placeholder='Edit Address'
+                                    onChange={(e) => setAddress(e.target.value)} />
+                            </div>
+                            <div className="input-box">
+                                {/* <label for="number" className="title-label" id="number-label">Edit City</label> */}
+                                <div className='name-before-input'>
+                                    <label for="number" className="title-label" id="number-label">Edit City</label>
+
+                                </div>
+                                <input className="createSpot-city-input"
+                                    type='text'
+                                    value={city}
+                                    placeholder='Edit City'
+                                    onChange={(e) => setCity(e.target.value)} />
+                            </div>
+                            <div className="input-box">
+                                {/* <label for="number" className="title-label" id="number-label">Edit State</label> */}
+                                <div className='name-before-input'>
+                                    <label for="number" className="title-label" id="number-label">Edit State</label>
+
+                                </div>
+                                <input
+                                    className="createSpot-state-input"
+                                    type='text'
+                                    value={state}
+                                    placeholder='Edit State'
+                                    onChange={(e) => setState(e.target.value)} />
+                            </div>
+                            <div className="input-box">
+                                {/* <label for="number" className="title-label" id="number-label">Edit Country</label> */}
+                                <div className='name-before-input'>
+                                    <label for="number" className="title-label" id="number-label">Edit Country</label>
+
+                                </div>
+                                <input
+                                    className="createSpot-country-input"
+                                    type='text'
+                                    value={country}
+                                    placeholder='Edit Country'
+                                    onChange={(e) => setCountry(e.target.value)} />
+                            </div>
+                            <div className="input-box">
+                                {/* <label for="number" className="title-label" id="number-label">Edit Description</label> */}
+                                <div className='name-before-input'>
+                                    <label for="number" className="title-label" id="number-label">Edit Description</label>
+
+                                </div>
+                                <input
+                                    className="createSpot-description-input"
+                                    type='text'
+                                    value={description}
+                                    placeholder='Edit Description'
+                                    onChange={(e) => setDescription(e.target.value)} />
+                            </div>
+                            <div className="input-box">
+                                {/* <label for="number" className="title-label" id="number-label">Edit Price</label> */}
+                                <div className='name-before-input'>
+                                    <label for="number" className="title-label" id="number-label">Edit Price</label>
+                                </div>
+                                <input className="createSpot-price-input"
+                                    type='text'
+                                    placeholder='Edit Price'
+                                    value={price}
+                                    onChange={(e) => setPrice(e.target.value)} />
+                            </div>
+                            <div className="editSpot-button">
+                                <button className="editSpot-submit-button" type='submit' disabled={errorValidation.length > 0}>
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div className="input-box">
-                    <label for="email" className="title-label" id="email-label">Edit Address</label>
-                    <input className="editSpot-address"
-                        type='text'
-                        value={address}
-                        placeholder='Edit Address'
-                        onChange={(e) => setAddress(e.target.value)} />
-                </div>
-                <div className="input-box">
-                    <label for="number" className="title-label" id="number-label">Edit City</label>
-                    <input className="editSpot-city"
-                        type='text'
-                        value={city}
-                        placeholder='Edit City'
-                        onChange={(e) => setCity(e.target.value)} />
-                </div>
-                <div className="input-box">
-                    <label for="number" className="title-label" id="number-label">Edit State</label>
-                    <input
-                        className="editSpot-state"
-                        type='text'
-                        value={state}
-                        placeholder='Edit State'
-                        onChange={(e) => setState(e.target.value)} />
-                </div>
-                <div className="input-box">
-                    <label for="number" className="title-label" id="number-label">Edit Country</label>
-                    <input
-                        className="editSpot-country"
-                        type='text'
-                        value={country}
-                        placeholder='Edit Country'
-                        onChange={(e) => setCountry(e.target.value)} />
-                </div>
-                <div className="input-box">
-                    <label for="number" className="title-label" id="number-label">Edit Description</label>
-                    <input
-                        className="editSpot-description"
-                        type='text'
-                        value={description}
-                        placeholder='Edit Description'
-                        onChange={(e) => setDescription(e.target.value)} />
-                </div>
-                <div className="input-box">
-                    <label for="number" className="title-label" id="number-label">Edit Price</label>
-                    <input className="editSpot-price"
-                        type='text'
-                        placeholder='Edit Price'
-                        value={price}
-                        onChange={(e) => setPrice(e.target.value)} />
-                </div>
-                <div className="editSpot-button">
-                    <button className="editSpot-submit-button" type='submit' disabled={errorValidation.length > 0}>
-                        Submit
-                    </button>
-                </div>
-            </form>
+            </div>
         </div>
     )
 }

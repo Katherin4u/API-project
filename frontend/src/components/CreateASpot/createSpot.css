@@ -122,7 +122,7 @@
     padding-top: 20px;
 }
 
-.createSpot-submit-button{
+.createSpot-submit-button {
     background: linear-gradient(45deg, #FF5A5F, #e31c5f 30%);
     color: #FFF;
     font-weight: 500;
@@ -135,7 +135,7 @@
     margin-right: 0;
 }
 
-.creatSpot-canceledit-button{
+.creatSpot-canceledit-button {
     background: linear-gradient(45deg, #FF5A5F, #e31c5f 30%);
     color: #FFF;
     font-weight: 500;
@@ -148,33 +148,65 @@
     margin-right: 0;
 }
 
-.createSpot-name-input{
-    width: 199px;
-}
-.createSpot-address-input{
+.createSpot-name-input {
     width: 199px;
 }
 
-.createSpot-city-input{
+.createSpot-address-input {
     width: 199px;
 }
 
-.createSpot-state-input{
+.createSpot-city-input {
     width: 199px;
 }
 
-.createSpot-country-input{
+.createSpot-state-input {
     width: 199px;
 }
 
-.createSpot-previewImage-input{
+.createSpot-country-input {
     width: 199px;
 }
 
-.createSpot-price-input{
+.createSpot-previewImage-input {
     width: 199px;
 }
 
-.createSpot-description-input{
+.createSpot-price-input {
     width: 199px;
+}
+
+.createSpot-description-input {
+    width: 199px;
+}
+
+
+
+
+
+.editSpot-Introduction {
+    justify-content: center;
+    display: flex;
+}
+
+.editSpot-button {
+    display: flex;
+    justify-content: center;
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-top: 40px;
+
+}
+
+.editSpot-submit-button {
+    background: linear-gradient(45deg, #FF5A5F, #e31c5f 30%);
+    color: #FFF;
+    font-weight: 500;
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    width: 100%;
+    bottom: 20px;
+    margin-right: 0;
 }
