@@ -35,7 +35,7 @@ function SignupFormModal() {
       <form
         className="form-input" onSubmit={handleSubmit}>
         <h2 className="sign-up-title-webname">
-          Welcome to Airbnb-Dupe
+          Welcome to Dupe-brb
         </h2>
         <ul>
           {errors?.map((error, idx) => <li key={idx}>{error}</li>)}

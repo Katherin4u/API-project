@@ -32,7 +32,7 @@ function LoginFormModal() {
       <h1 className="login-title">Log In</h1>
       <form onSubmit={handleSubmit}>
         <h2 className="login-title-webname">
-          Welcome to Airbnb-Dupe
+          Welcome to Dupe-brb
         </h2>
         <ul className="som">
           {errors.length > 0 && errors.map((error, idx) => (

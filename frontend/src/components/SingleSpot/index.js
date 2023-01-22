@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { addAReviewThunk, allTheReviewsThunk, deleteReviewThunk } from '../../store/reviews';
-import { deleteButtonThunk, detailedSpotThunk } from '../../store/spots';
+import { deleteButtonThunk, detailedSpotThunk, getAllSpotsThunk } from '../../store/spots';
 import './singleSpot.css'
 
 const SingleSpot = () => {
@@ -56,6 +56,7 @@ const SingleSpot = () => {
         e.preventDefault()
         dispatch(deleteButtonThunk(spotId))
         history.push('/')
+        dispatch(getAllSpotsThunk())
     }
 
     const deleteRevButton = async (e, reviewId) => {
@@ -208,7 +209,7 @@ const SingleSpot = () => {
                                 <div className='textarea'>
                                     <textarea
                                         rows="6"
-                                        cols="25"
+                                        cols="27"
                                         placeholder="Enter Review"
                                         onChange={(e) => setReviewText(e.target.value)}
                                         value={reviewText}
