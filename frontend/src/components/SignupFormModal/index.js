@@ -25,7 +25,7 @@ function SignupFormModal() {
           const data = await res.json();
           if (data && data.errors) setErrors([...data.errors]);
         });
-    } else setErrors(['Please confirm passwords match before continuing'])
+    } else setErrors(['Passwords Must Match'])
   };
 
   return (
