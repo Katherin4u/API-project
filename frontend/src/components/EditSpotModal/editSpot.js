@@ -15,18 +15,15 @@ const EditSpotModal = () => {
     const [state, setState] = useState('');
     const [country, setCountry] = useState('');
     const [description, setDescription] = useState('');
-    const [submitted, setSubmitted] = useState(false);
     const [price, setPrice] = useState('');
     const [errorValidation, setErrorValidation] = useState([])
     const user = useSelector((state) => state.session);
     const spot = useSelector((state) => state.spots.singleSpot)
 
-
     const submitChanges = async (e) => {
         e.preventDefault();
 
         if (errorValidation.length > 0) {
-            setSubmitted(true)
             return;
         };
 
@@ -51,6 +48,26 @@ const EditSpotModal = () => {
 
     }
 
+    // handles the setting of the form variables when editing
+    useEffect(() => {
+        if (Object.keys(spot).length > 0) {
+            const { name, address, city, state, country, price, description } = spot
+            setName(name);
+            setAddress(address)
+            setCity(city)
+            setState(state)
+            setCountry(country)
+            setPrice(price)
+            setDescription(description)
+        }
+    }, [dispatch, spotId, spot])
+
+    // handles getting teh spot information for Edit form
+    useEffect(() => {
+        dispatch(detailedSpotThunk(spotId))
+    }, [])
+
+    // sets spot names to 
     useEffect(() => {
         const errors = []
         if (name.length === 0) errors.push('Name must be less than 50 characters')
@@ -64,40 +81,25 @@ const EditSpotModal = () => {
         setErrorValidation(errors)
     }, [name, address, city, state, country, price, description])
 
-    useEffect(() => {
-        dispatch(detailedSpotThunk(spotId))
-
-        if (Object.keys(spot).length > 0) {
-            const { name, address, city, state, country, price, description } = spot
-            setName(name);
-            setAddress(address)
-            setCity(city)
-            setState(state)
-            setCountry(country)
-            setPrice(price)
-            setDescription(description)
-        }
-    }, [])
-
-    // if (!spot.id) return null;
+    if (!spot.id) return null;
 
     return (
-        <div style={{alignItems: "center", display:'flex', flexDirection: 'column'}}>
+        <div style={{ alignItems: "center", display: 'flex', flexDirection: 'column' }}>
             <h1 className="editSpot-Introduction">Edit your spot!</h1>
             <div id='editSpot-container'>
-                {submitted && errorValidation.length > 0 && (
-                    <div className="editSpot-info">
-                        <ul className="errors">
-                            {errorValidation.map((error) => {
-                                return <li key={error}>{error}</li>
-                            })}
-                        </ul>
-                    </div>
-                )}
             </div>
             <div className="create-spot-main-div" style={{ width: '600px' }}>
 
                 <div className="Spot-creation" style={{ border: 'black solid 2px', padding: '20px', borderRadius: '15px' }}>
+                    {errorValidation.length > 0 && (
+                        <div className="editSpot-info">
+                            <ul className="errors">
+                                {errorValidation.map((error) => {
+                                    return <li key={error}>{error}</li>
+                                })}
+                            </ul>
+                        </div>
+                    )}
 
                     <div id="client-info">
                         <form className="spot-form-submit" onSubmit={submitChanges}>

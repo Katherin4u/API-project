@@ -72,6 +72,7 @@ export default function CreateSpotModal() {
         if (address.length === 0) errors.push('Street address is required')
         if (city.length === 0) errors.push('City is required')
         if (state.length === 0) errors.push('State is required')
+        if (previewImage.length === 0) errors.push('Must enter an image URL')
         if (country.length === 0) errors.push('Country is required')
         if (price <= 0) errors.push('Price per day is required')
         if (description.length === 0) errors.push('Description is required')
@@ -81,17 +82,22 @@ export default function CreateSpotModal() {
 
 
     return (
-        <div className="create-spot-main-div" style={{ width: '600px' }}>
+        <div className="div">
+
+        <div className="create-spot-main-div" >
             {user ? (<h1 className="Introduction">Create A Spot!</h1>) : (<h1 className="Introduction">
                 Log in to create a Spot!</h1>)}
             <div className="Spot-creation">
                 <div id="client-info">
                     <form className="spot-form-submit" onSubmit={submit} style={{ border: 'black solid 2px', padding: '20px', borderRadius: '15px' }}>
+                        <div className="errors-div">
+
                         <ul className="errors-input">
                             {submitted && errorValidations.map((error) => {
                                 return <li key={error}>{error}</li>
                             })}
                         </ul>
+                        </div>
                         <div className="input-box">
                             <div className='name-before-input'>
                                 <label for="name" className="title-label" id="name-label">Name</label>
@@ -160,7 +166,7 @@ export default function CreateSpotModal() {
                             <input
                                 className="createSpot-previewImage-input"
                                 type='url'
-                                placeholder="Image url"
+                                placeholder="Image URL"
                                 value={previewImage}
                                 onChange={(e) => {
                                     e.preventDefault();
@@ -210,6 +216,7 @@ export default function CreateSpotModal() {
                 </div>
 
             </div>
+        </div>
         </div>
 
     )

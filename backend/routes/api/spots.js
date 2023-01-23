@@ -64,12 +64,10 @@ const validateSpot = [
     check("lat").isNumeric().withMessage("Latitude is not valid"),
     check("lng").isNumeric().withMessage("Longitude is not valid"),
     check("name")
-        // .isLength({ max: 50 })
         .notEmpty()
         .withMessage("Name is required"),
     check("name")
         .isLength({ max: 50 })
-        // .notEmpty()
         .withMessage("Name must be less than 50 characters"),
     check("description")
         .exists({ checkFalsy: true })
@@ -77,8 +75,6 @@ const validateSpot = [
     check("price")
         .exists({ checkFalsy: true })
         .not()
-        // .isInt({ min: 1 })
-        // .isNumeric()
         .withMessage("Price per day is required"),
     handleValidationErrors,
 ]

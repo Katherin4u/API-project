@@ -18,11 +18,12 @@ function Navigation({ isLoaded }) {
   return (
     <div className='nav-main'>
       <div className='nav'>
-        <NavLink exact to="/">
+        <NavLink exact to="/" style={{ all: 'unset' }} className="otherNav">
           <span className='title'>
-            <i class="fa-solid fa-warehouse">
-              &nbsp;Brb-dupe
-            </i>
+            <img src={process.env.PUBLIC_URL + '/favicon-house.png'}></img>
+            <h3>
+              dupe-brb
+            </h3>
           </span>
         </NavLink>
       </div>

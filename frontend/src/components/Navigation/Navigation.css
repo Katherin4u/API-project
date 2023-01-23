@@ -19,6 +19,20 @@
 .title {
     font-size: 20px;
     padding-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.title h3 {
+    color: #ff385c;
+    font-weight: bold;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.title img {
+    height: 48px;
+    cursor: pointer;
 }
 
 .nav {
@@ -88,7 +102,7 @@
 
 li .createSpotButton {
     padding-left: 15px;
-    padding:10px;
+    padding: 10px;
 }
 
 li .createSpotButton:hover {

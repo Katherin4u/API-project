@@ -30,7 +30,7 @@ function DemoUserModal() {
             <h1 className="demo-login">Demo Login</h1>
             <form onSubmit={handleSubmit}>
                 <h2 className="demouser-title-webname">
-                    Welcome to Airbnb-Dupe
+                    Welcome to Dupe-brb
                 </h2>
                 <ul>
                     {errors.map((error, idx) => (

@@ -70,3 +70,8 @@
 .main-login-container{
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
 }
+
+.som{
+    list-style-type: none;
+    color: red;
+}

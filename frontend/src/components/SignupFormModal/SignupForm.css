@@ -1,10 +1,11 @@
-.form-input{
+.form-input {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-top: solid lightgray 2px;
 }
 
-.email-input{
+.email-input {
     height: 50px;
     width: 30em;
     border-top-left-radius: 12px;
@@ -12,27 +13,27 @@
 }
 
 
-.username-input{
+.username-input {
     height: 50px;
     width: 30em;
 }
 
-.firstname-input{
+.firstname-input {
     height: 50px;
     width: 30em;
 }
 
-.lastname-input{
+.lastname-input {
     height: 50px;
     width: 30em;
 }
 
-.password-input-signup{
+.password-input-signup {
     height: 50px;
     width: 30em;
 }
 
-.confirmpassword-input{
+.confirmpassword-input {
     height: 50px;
     width: 30em;
     border-bottom-left-radius: 12px;
@@ -40,14 +41,13 @@
 }
 
 
-.signup-title{
+.signup-title {
     display: flex;
     justify-content: center;
-    border-bottom: solid lightgray 2px;
-    padding-bottom: 20px;
+    /* border-bottom: solid lightgray 2px; */
 }
 
-.signup-submit-button{
+.signup-submit-button {
     background: linear-gradient(45deg, #FF5A5F, #e31c5f 30%);
     color: #FFF;
     font-weight: 500;
@@ -62,22 +62,34 @@
     width: 31em;
 }
 
-.sign-up-submit-div{
-    padding-top: 50px;
+.sign-up-submit-div {
+    padding-top: 30px;
     padding-left: 35px;
     padding-right: 35px;
 }
 
-.sign-up-title-webname{
+.sign-up-title-webname {
     padding-right: 6em;
+    
 }
 
-.disclaimer-signup{
-    padding-right: 6em;
+.disclaimer-signup {
+    padding-right: 4em;
     padding-top: 5px;
 }
 
 
-.main-signup-container{
+.main-signup-container {
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+}
+
+.validation-color-signup {
+    color: red;
+    list-style-type: none;
+}
+
+.error-div-signup{
+    display: flex;
+    justify-content: center;
+    padding-right:  150px;
 }
