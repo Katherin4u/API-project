@@ -67,6 +67,7 @@
     width: 200px;
     overflow: hidden;
     height: 11em;
+    justify-content: space-around;
 }
 
 .profile-dropdown:hover {
@@ -118,6 +119,7 @@ li .createSpotButton:hover {
     width: 80%;
     text-align: left;
     white-space: nowrap;
+    font-size: 18px;
 }
 
 .button-dropdown-item:hover {
