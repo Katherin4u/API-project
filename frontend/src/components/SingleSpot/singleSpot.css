@@ -73,8 +73,6 @@
     height: 100%;
     width: 100%;
     border-radius: 46px;
-    
-
 }
 
 .rating-ontop {
@@ -303,4 +301,20 @@
     display: flex;
     justify-content: center;
     padding-right: 70px;
+}
+
+@media screen and (max-width: 1024px) {
+    .spot-images-div {
+        width: 100%;
+    }
+
+    .main-container-single-spot {  
+        padding-right: 71px;
+    }
+
+    .nav-main, .title {
+        align-items: center;
+        display: flex;
+        padding-right: 78px;
+    }
 }
