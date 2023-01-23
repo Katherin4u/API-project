@@ -22,7 +22,7 @@ function Navigation({ isLoaded }) {
           <span className='title'>
             <img src={process.env.PUBLIC_URL + '/favicon-house.png'}></img>
             <h3>
-              dupe-brb
+            dupe-brb-loka
             </h3>
           </span>
         </NavLink>

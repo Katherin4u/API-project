@@ -35,7 +35,7 @@ function SignupFormModal() {
       <form
         className="form-input" onSubmit={handleSubmit}>
         <h2 className="sign-up-title-webname">
-          Welcome to Dupe-brb
+          Welcome to dupe-brb-loka
         </h2>
         <div className="error-div-signup">
         <ul className="validation-color-signup">
