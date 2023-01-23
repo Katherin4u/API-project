@@ -179,7 +179,7 @@ const SingleSpot = () => {
                         <div className='rating-price'>
                             <div className="price-rating-side-box">
                                 <div className='price-night'>
-                                    <div className="spot-description-price">{`${spot.price}`}</div>
+                                    <div className="spot-description-price">{`$${spot.price}`}</div>
                                     <div className='night'>
                                         night
                                     </div>
