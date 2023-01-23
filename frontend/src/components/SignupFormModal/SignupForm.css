@@ -10,27 +10,37 @@
     width: 30em;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
+    border-left: solid black 2px;
+    border-right: solid black 1.9px;
 }
 
 
 .username-input {
     height: 50px;
     width: 30em;
+    border-left: solid black 2px;
+    border-right: solid black 1.9px;
 }
 
 .firstname-input {
     height: 50px;
     width: 30em;
+    border-left: solid black 2px;
+    border-right: solid black 1.9px;
 }
 
 .lastname-input {
     height: 50px;
     width: 30em;
+    border-left: solid black 2px;
+    border-right: solid black 1.9px;
 }
 
 .password-input-signup {
     height: 50px;
     width: 30em;
+    border-left: solid black 2px;
+    border-right: solid black 1.9px;
 }
 
 .confirmpassword-input {
@@ -38,6 +48,9 @@
     width: 30em;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
+    border-left: solid black 2px;
+    border-right: solid black 1.9px;
+    border-bottom: solid black 2px;
 }
 
 

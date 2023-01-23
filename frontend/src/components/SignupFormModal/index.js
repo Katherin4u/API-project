@@ -18,15 +18,14 @@ function SignupFormModal() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password === confirmPassword) {
-    setErrors([]);
-    return await dispatch(sessionActions.signup({ email, username, firstName, lastName, password }))
-      .then(closeModal)
-      .catch(async (res) => {
-        const data = await res.json();
-        console.log(data)
-        if (data && data.errors) setErrors([...data.errors]);
-      });
-    } setErrors(['Passwords do not match'])
+      setErrors([]);
+      return await dispatch(sessionActions.signup({ email, username, firstName, lastName, password }))
+        .then(closeModal)
+        .catch(async (res) => {
+          const data = await res.json();
+          if (data && data.errors) setErrors([...data.errors]);
+        });
+    } setErrors(['Please confirm passwords match before continuing'])
   };
 
   return (
@@ -38,14 +37,13 @@ function SignupFormModal() {
           Welcome to dupe-brb-loka
         </h2>
         <div className="error-div-signup">
-        <ul className="validation-color-signup">
-          {errors?.map((error, idx) => <li key={idx}>{error}</li>)}
-        </ul>
+          <ul className="validation-color-signup">
+            {errors?.map((error, idx) => <li key={idx}>{error}</li>)}
+          </ul>
 
         </div>
         <div className="email-radius">
           <label>
-
             <input
               placeholder="Email"
               type="text"
@@ -55,16 +53,17 @@ function SignupFormModal() {
             />
           </label>
         </div>
-        <label>
-
-          <input
-            placeholder="Username"
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            className="username-input"
-          />
-        </label>
+        <div>
+          <label>
+            <input
+              placeholder="Username"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className="username-input"
+            />
+          </label>
+        </div>
         <label>
           <input
             placeholder='First Name'

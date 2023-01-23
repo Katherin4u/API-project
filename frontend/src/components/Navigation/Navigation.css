@@ -56,16 +56,17 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    align-items: flex-start;
+    align-items: center;
     background-color: #FFF;
     top: -5px;
-    right: 211px;
+    right: 168px;
     box-shadow: 0px 0px 14px 0.5px rgba(221, 221, 221, 0.7);
     border-radius: 15px;
     padding: 15px 0px;
     list-style: none;
     width: 200px;
     overflow: hidden;
+    height: 11em;
 }
 
 .profile-dropdown:hover {
@@ -95,15 +96,11 @@
 .createSpotButton {
     all: unset;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 18px;
     padding-top: 8px;
     width: 100%;
 }
 
-li .createSpotButton {
-    padding-left: 15px;
-    padding: 10px;
-}
 
 li .createSpotButton:hover {
     background-color: rgb(238, 238, 238);
@@ -134,9 +131,6 @@ li .createSpotButton:hover {
     padding-top: 8px;
 }
 
-.user-username {
-    padding-left: 15px;
-}
 
 .user-first-last-name {
     padding-left: 15px;
@@ -144,8 +138,8 @@ li .createSpotButton:hover {
 }
 
 .user-email {
-    padding-left: 15px;
     padding-top: 10px;
+    
 }
 
 .logout-btn {
@@ -153,10 +147,7 @@ li .createSpotButton:hover {
     padding-top: 10px;
 }
 
-.create-btn {
-    /* padding-left: 15px; */
-    /* padding-top: 10px; */
-}
+
 
 .lastTwo {
     display: flex;
@@ -190,4 +181,26 @@ li .createSpotButton:hover {
     font-weight: bold;
     padding-top: 10px;
     padding-left: 15px;
+}
+
+@media screen and (max-width: 1024px) {
+    .nav {
+        flex-grow: .98;
+    }
+
+    .nav-three {
+        width: 170px;
+    }
+
+    .createASpotButton {
+        width: 100px;
+    }
+}
+
+.createASpotButton{
+    all: unset;
+    cursor: pointer;
+    font-size: 20px;
+    padding-top: 8px;
+    width: 100%;
 }

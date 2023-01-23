@@ -29,7 +29,7 @@ function Navigation({ isLoaded }) {
       </div>
       <div className='nav-three'>
         {sessionUser ? (
-          <button onClick={(e) => handleCreateSpot(e)} className='createSpotButton'>
+          <button onClick={(e) => handleCreateSpot(e)} className='createASpotButton'>
             Create Spot
           </button>
         ) : (<div></div>)}
