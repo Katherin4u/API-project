@@ -82,17 +82,22 @@ export default function CreateSpotModal() {
 
 
     return (
-        <div className="create-spot-main-div" style={{ width: '600px' }}>
+        <div className="div">
+
+        <div className="create-spot-main-div" >
             {user ? (<h1 className="Introduction">Create A Spot!</h1>) : (<h1 className="Introduction">
                 Log in to create a Spot!</h1>)}
             <div className="Spot-creation">
                 <div id="client-info">
                     <form className="spot-form-submit" onSubmit={submit} style={{ border: 'black solid 2px', padding: '20px', borderRadius: '15px' }}>
+                        <div className="errors-div">
+
                         <ul className="errors-input">
                             {submitted && errorValidations.map((error) => {
                                 return <li key={error}>{error}</li>
                             })}
                         </ul>
+                        </div>
                         <div className="input-box">
                             <div className='name-before-input'>
                                 <label for="name" className="title-label" id="name-label">Name</label>
@@ -211,6 +216,7 @@ export default function CreateSpotModal() {
                 </div>
 
             </div>
+        </div>
         </div>
 
     )

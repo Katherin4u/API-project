@@ -291,3 +291,13 @@
 .firstName{
     padding-left: 6px;
 }
+
+.errors{
+    list-style-type: none;
+    color: red;
+}
+.editSpot-info{
+    display: flex;
+    justify-content: center;
+    padding-right: 70px;
+}

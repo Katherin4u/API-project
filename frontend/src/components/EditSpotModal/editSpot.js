@@ -93,7 +93,6 @@ const EditSpotModal = () => {
                 <div className="Spot-creation" style={{ border: 'black solid 2px', padding: '20px', borderRadius: '15px' }}>
                     {errorValidation.length > 0 && (
                         <div className="editSpot-info">
-                            Error here
                             <ul className="errors">
                                 {errorValidation.map((error) => {
                                     return <li key={error}>{error}</li>

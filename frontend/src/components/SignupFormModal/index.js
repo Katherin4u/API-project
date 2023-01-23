@@ -37,9 +37,12 @@ function SignupFormModal() {
         <h2 className="sign-up-title-webname">
           Welcome to Dupe-brb
         </h2>
-        <ul>
+        <div className="error-div-signup">
+        <ul className="validation-color-signup">
           {errors?.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
+
+        </div>
         <div className="email-radius">
           <label>
 
