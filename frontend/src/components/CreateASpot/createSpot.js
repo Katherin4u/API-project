@@ -180,7 +180,7 @@ export default function CreateSpotModal() {
                             </div>
 
                             <input className="createSpot-price-input"
-                                type='text'
+                                type='numeric'
                                 placeholder="Price"
                                 value={price}
                                 onChange={(e) => setPrice(e.target.value)} />
