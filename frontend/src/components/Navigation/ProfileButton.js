@@ -73,20 +73,11 @@ function ProfileButton({ user }) {
               <div className="userInformation">
                 <div className="user-username">
                   <div className="username">
-                    Username:
                   </div>
                   <li className="user-username">{user.username}</li>
                 </div>
-                {/* <div className="first-last-div">
-                <div className="first-last">
-                Name:
-                </div>
-                <li className="user-first-last-name">{user.firstName} {user.lastName}</li>
-              </div> */}
+                
                 <div className="email-div">
-                  <div className="email">
-                    Email:
-                  </div>
                   <li className="user-email">{user.email}</li>
                 </div>
               </div>
@@ -96,11 +87,11 @@ function ProfileButton({ user }) {
                     Create Spot
                   </button>
                 </li>
+
+              </div>
                 <li className="create-btn">
                   <button className='createSpotButton' onClick={logout}>Log Out</button>
                 </li>
-
-              </div>
             </ div>
           ) : (
             <>

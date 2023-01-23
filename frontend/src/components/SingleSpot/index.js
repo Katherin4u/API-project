@@ -93,10 +93,12 @@ const SingleSpot = () => {
                         </div>
                         <div className='numReview'>{reviews.length} Reviews</div>
                         <div>{spot.reviews}</div>
+                        ·
                         <div className='location-underline'>{spot.address}</div>
-                        <div className='location-underline'>{spot.city}</div>
-                        <div className='location-underline'>{spot.state}</div>
-                        <div className='location-underline'>{spot.country}</div>
+                        ·
+                        <div className='location-underline'>{spot.city}, {spot.state}, {spot.country}</div>
+                        {/* <div className='location-underline'>{spot.state}</div>
+                        <div className='location-underline'>{spot.country}</div> */}
                     </div>
                     {spot.Owner.id === user.user?.id && (
                         <div className="edit-and-delete-buttons">
@@ -135,7 +137,6 @@ const SingleSpot = () => {
                             <span> 2 bath</span>
                         </div>
                     </div>
-
                     <div className='extra-words-div'>
                         <div className='selfCheckin-div'>
                             <div className='self-checkin'> Self check-In
@@ -146,8 +147,7 @@ const SingleSpot = () => {
                         </div>
                         <div className='user-description-div'>
                             <div className='monica'>
-                                ${spot?.Owner.firstName} is a Superhost
-
+                                {spot?.Owner.firstName} is a Superhost
                             </div>
                             <div className='user-description'>
                                 <span>
@@ -174,13 +174,12 @@ const SingleSpot = () => {
                         </div>
                     </div>
                 </div>
-
                 <div className='right-div'>
                     <div className='reviewboxborder'>
                         <div className='rating-price'>
                             <div className="price-rating-side-box">
                                 <div className='price-night'>
-                                    <div className="spot-description-price">{`$${spot.price}`}</div>
+                                    <div className="spot-description-price">{`${spot.price}`}</div>
                                     <div className='night'>
                                         night
                                     </div>

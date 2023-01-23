@@ -34,7 +34,7 @@ const AllSpots = () => {
                         />
                     </div>
                     <div className="information-box">
-                        <div className="info">
+                        <div className="info-allSpot">
                             <div className="location">
                                 <span className="spots-name" key={spot.id}>
                                     {spot.city.length + spot.state.length > 50 ? spot.state : `${spot.city}, ${spot.state}`}
