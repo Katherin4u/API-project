@@ -76,14 +76,13 @@
 }
 
 .sign-up-submit-div {
-    padding-top: 30px;
+    padding-top: 25px;
     padding-left: 35px;
     padding-right: 35px;
 }
 
 .sign-up-title-webname {
     padding-right: 6em;
-    
 }
 
 .disclaimer-signup {
@@ -104,5 +103,5 @@
 .error-div-signup{
     display: flex;
     justify-content: center;
-    padding-right:  150px;
+    padding-right:  270px;
 }
