@@ -48,7 +48,6 @@ const SplashPage = () => {
                         <div className="first-column">
                             <p style={{ textDecoration: "underline", color: "rgb(30, 30, 30)" }}>Technology:</p>
                             <p><a href="https://www.javascript.com/" style={{ textDecoration: "none", color: "rgb(30, 30, 30)" }}>Javascript</a></p>
-                            <p><a href="https://www.python.org/" style={{ textDecoration: "none", color: "rgb(30, 30, 30)" }}>Python</a></p>
                             <p><a href="https://reactjs.org/" style={{ textDecoration: "none", color: "rgb(30, 30, 30)" }}>React</a></p>
                             <p><a href="https://redux.js.org/" style={{ textDecoration: "none", color: "rgb(30, 30, 30)" }}>Redux</a></p>
                         </div>
@@ -64,7 +63,7 @@ const SplashPage = () => {
                             <p><a href="https://www.linkedin.com/in/katherin-garcia-9845a8194/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "rgb(30, 30, 30)" }}>Linkedin</a></p>
                         </div>
                     </div>
-                    <p style={{ color: "rgb(30, 30, 30)" }}>Pin-it is a fake site, only a clone of AirBnb</p>
+                    <p style={{ color: "rgb(30, 30, 30)" }}>dupe-brb-loka is a fake site, only a clone of AirBnb</p>
 
                 </div>
             </div>

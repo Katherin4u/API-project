@@ -5,8 +5,8 @@
     position: relative;
     box-shadow: 0px 6px 10px 2.5px rgb(160, 158, 158);
     background-color: #FFF;
-    top: -8px;
-    right: 503px;
+    top: -12px;
+    right: 429px;
     border-radius: 15px;
     padding: 20px 0px;
     z-index: 5;
@@ -32,7 +32,31 @@
     height: 29px;
 }
 
-.div{
+.div-for-edit{
     height: 21px;
     width: 30px;
+}
+
+.button-edit-comment{
+    background: linear-gradient(45deg, #FF5A5F, #e31c5f 30%);
+    border: none;
+    padding: 9px;
+    color: #FFF;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-right: 0;
+   
+}
+
+.edit-form-submit-button{
+    background: linear-gradient(45deg, #FF5A5F, #e31c5f 30%);
+    color: #FFF;
+    font-weight: 500;
+    padding: 9px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    /* width: ; */
+    /* bottom: 20px; */
+    margin-right: 0;
 }

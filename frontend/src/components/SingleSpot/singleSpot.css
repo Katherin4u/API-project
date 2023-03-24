@@ -36,8 +36,13 @@
     margin: 0 4px;
 }
 
+.moving-this{
+    display: flex;
+}
+
 .main-buttom-pic-div {
     display: flex;
+    flex-direction: column;
     gap: 50px;
     width: 100%;
     padding-top: 2em;
@@ -189,10 +194,13 @@
 
 .reviewboxborder {
     border: solid lightgray 1px;
-    height: 89%;
-    border-radius: 25px;
+    height: 50%;
+    border-radius: 10px;
     box-shadow: 3px 3px 8px gray;
     width: 274px;
+    position: sticky;
+    top: 80px;
+    /* z-index: 1; */
 }
 
 .spot-description-price {
@@ -281,6 +289,17 @@
 
 }
 
+.button-delete{
+    background: linear-gradient(45deg, #FF5A5F, #e31c5f 30%);
+    padding: 9px;
+    border: none;
+    color: #FFF;
+    
+    border-radius: 7px;
+    cursor: pointer;
+  
+}
+
 .button-padding {
     padding-left: 27px;
     padding-right: 20px;
@@ -311,6 +330,36 @@
     display: flex;
     justify-content: center;
     padding-right: 70px;
+}
+
+.edit-spot{
+    background: linear-gradient(45deg, #FF5A5F, #e31c5f 30%);
+    color: #FFF;
+    font-weight: 500;
+    padding: 8px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    width: 100%;
+    bottom: 20px;
+    margin-right: 0;
+}
+
+.spot-edit-delete-button{
+    background: linear-gradient(45deg, #FF5A5F, #e31c5f 30%);
+    color: #FFF;
+    font-weight: 500;
+    padding: 8px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    width: 100%;
+    bottom: 20px;
+    margin-right: 0;
+}
+
+.editRev-div{
+    padding-bottom: 12px;
 }
 
 .user-review{
