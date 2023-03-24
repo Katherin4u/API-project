@@ -242,6 +242,7 @@
     overflow: scroll;
     overflow-x: hidden;
     height: 25rem;
+    width: 45rem;
 }
 
 .input-review {

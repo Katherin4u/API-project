@@ -1,0 +1,38 @@
+.inside-dropdown3 {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0px 6px 10px 2.5px rgb(160, 158, 158);
+    background-color: #FFF;
+    top: -8px;
+    right: 503px;
+    border-radius: 15px;
+    padding: 20px 0px;
+    z-index: 5;
+    width: 427px;
+    height: 4em;
+    align-items: center;
+    
+}
+
+.edit-review-submit-button-container{
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 19rem;
+    padding-top: 10px;
+}
+
+.edit-review{
+    padding: 5px;
+    width: 317px;
+}
+
+.select-container{
+    height: 29px;
+}
+
+.div{
+    height: 21px;
+    width: 30px;
+}
