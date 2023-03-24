@@ -8,6 +8,9 @@ import AllSpots from "./components/allTheSpots";
 import SingleSpot from "./components/SingleSpot";
 import CreateSpot from "./components/CreateASpot/createSpot";
 import EditSpotModal from "./components/EditSpotModal/editSpot";
+import SplashPage from "./components/SplashPage/index"
+import Footer from "./components/Footer";
+import NotFound from "./components/PageNotFound";
 
 
 
@@ -27,19 +30,29 @@ function App() {
             <Switch>
               <Route path="/spots/:spotId/edit">
                 <EditSpotModal />
+                <Footer />
               </Route>
               <Route path="/spots/create">
                 <CreateSpot />
+                <Footer />
               </Route>
               <Route path='/spots/:spotId'>
                 <SingleSpot />
+                <Footer />
+              </Route>
+              <Route exact path='/'>
+                <SplashPage />
               </Route>
               <Route path='/spots'>
                 <AllSpots />
+                <Footer />
               </Route>
-              <Route exact path='/'>
+              <Route path='/'>
+                <NotFound />
+              </Route>
+              {/* <Route exact path='/'>
                 <AllSpots />
-              </Route>
+              </Route> */}
             </Switch>
           )}
         </main>

@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
+import { Modal } from '../../context/Modal';
 import { addAReviewThunk, allTheReviewsThunk, deleteReviewThunk } from '../../store/reviews';
 import { deleteButtonThunk, detailedSpotThunk, getAllSpotsThunk } from '../../store/spots';
+import EditReview from '../editReview';
+import OpenModalMenuItem from '../Navigation/OpenModalMenuItem';
 import './singleSpot.css'
 
 const SingleSpot = () => {
@@ -120,7 +123,7 @@ const SingleSpot = () => {
                     )}
                 </div>
                 <div className="spot-images-div">
-                    <img className="single-image" src={spotImage ? spot.SpotImages[0].url : altImg} alt={spot.id}
+                    <img className="single-image" onError={e => { e.currentTarget.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/800px-No-Image-Placeholder.svg.png"; }} src={spotImage ? spot.SpotImages[0].url : altImg} alt={spot.id}
                     />
                 </div>
             </div>
@@ -207,6 +210,8 @@ const SingleSpot = () => {
                             <div className='input-review'>
                                 <div className='textarea'>
                                     <textarea
+                                        minLength={2}
+                                        maxLength={300}
                                         rows="6"
                                         cols="27"
                                         placeholder="Enter Review"
@@ -254,9 +259,11 @@ const SingleSpot = () => {
                                     <div className='names-delete-button'>
                                         {user.user?.id === rev.userId && (
                                             <div className='review-delete'>
-                                                <div className='three'>
-                                                </div>
-                                                <div>
+
+                                                <div className='edit-and-delete'>
+                                                    <div className='editRev-div'>
+                                                        <EditReview props={{ id: rev.id, singleReview: rev.review }} />
+                                                    </div>
                                                     <button
                                                         onClick={(e) => deleteRevButton(e, rev.id)}
                                                         className='button-delete'
