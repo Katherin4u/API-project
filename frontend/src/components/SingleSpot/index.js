@@ -127,53 +127,117 @@ const SingleSpot = () => {
                     />
                 </div>
             </div>
-            <div className='main-buttom-pic-div'>
-                <div className='left-div'>
-                    <div className='discription-div'>
-                        <div className='description-info'>
-                            {spot.description}
-                        </div>
-                        <div className='roomInfo'>
-                            <span> 4 guests</span>
-                            <span> 3 bedrooms</span>
-                            <span> 2 bed</span>
-                            <span> 2 bath</span>
-                        </div>
-                    </div>
-                    <div className='extra-words-div'>
-                        <div className='selfCheckin-div'>
-                            <div className='self-checkin'> Self check-In
+            <div className='moving-this'>
+
+                <div className='main-buttom-pic-div'>
+                    <div className='left-div'>
+                        <div className='discription-div'>
+                            <div className='description-info'>
+                                {spot.description}
                             </div>
-                            <span className='span-text'>
-                                Check yourself in with the keypad.
-                            </span>
-                        </div>
-                        <div className='user-description-div'>
-                            <div className='monica'>
-                                {spot?.Owner.firstName} is a Superhost
+                            <div className='roomInfo'>
+                                <span> 4 guests</span>
+                                <span> 3 bedrooms</span>
+                                <span> 2 bed</span>
+                                <span> 2 bath</span>
                             </div>
-                            <div className='user-description'>
-                                <span>
-                                    Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.
+                        </div>
+                        <div className='extra-words-div'>
+                            <div className='selfCheckin-div'>
+                                <div className='self-checkin'> Self check-In
+                                </div>
+                                <span className='span-text'>
+                                    Check yourself in with the keypad.
                                 </span>
                             </div>
+                            <div className='user-description-div'>
+                                <div className='monica'>
+                                    {spot?.Owner.firstName} is a Superhost
+                                </div>
+                                <div className='user-description'>
+                                    <span>
+                                        Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests.
+                                    </span>
+                                </div>
+                            </div>
+                            <div className='location-description-div'>
+                                <div className='location-description'>
+                                    Free cancellation before Feb 21.
+                                </div>
+                            </div>
                         </div>
-                        <div className='location-description-div'>
-                            <div className='location-description'>
-                                Free cancellation before Feb 21.
+
+                        <div>
+                            <div className="aircover-title-image">
+                                <img src="https://a0.muscache.com/im/pictures/54e427bb-9cb7-4a81-94cf-78f19156faad.jpg" />
+                            </div>
+                            <div className='descripton-checkin'>
+                                Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.
+                            </div>
+                            <div className='learn-more'>
+                                Learn More
                             </div>
                         </div>
                     </div>
+                    <div className='all-reviews-div'>
+                        <div className='reviewbox-rating-reviews'>
+                            <div className='buttom-spot-rating'>
+                                <i className='fas fa-star star-icon'></i>{spot.avgStarRating ? spot.avgStarRating.toFixed(1) : '0'}
+                            </div>
+                            <div className='numReview-bottom-spot'>{reviews.length} Reviews</div>
 
-                    <div>
-                        <div className="aircover-title-image">
-                            <img src="https://a0.muscache.com/im/pictures/54e427bb-9cb7-4a81-94cf-78f19156faad.jpg" />
                         </div>
-                        <div className='descripton-checkin'>
-                            Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.
-                        </div>
-                        <div className='learn-more'>
-                            Learn More
+                        <div className='review-main'>
+                            {reviews?.map((rev) => (
+                                <div className='main-review-div' key={rev.id}>
+                                    <div className='user-review-div'>
+                                        <div className='left-div-review'>
+                                            <div className='names-delete-button'>
+                                                {user.user?.id === rev.userId && (
+                                                    <div className='review-delete'>
+
+                                                        <div className='edit-and-delete'>
+                                                            <div className='editRev-div'>
+                                                                <EditReview props={{ id: rev.id, singleReview: rev.review }} />
+                                                            </div>
+                                                            <button
+                                                                onClick={(e) => deleteRevButton(e, rev.id)}
+                                                                className='button-delete'
+                                                            >
+                                                                <i className="fa-solid fa-trash"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                )}
+                                                <div className='first-and-lastname'>
+                                                    <div className='firstname-lastname-font'>
+                                                        <i className="fas fa-user-circle" />
+                                                        <div className='firstName'>
+                                                            {rev.User?.firstName}
+                                                        </div>
+                                                        <div className='lastName'>
+                                                            {rev.User?.lastName}
+
+                                                        </div>
+                                                    </div>
+                                                    <div className='two'>
+                                                        <div className='rate-date'>
+                                                            <div> {currentDate}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br></br>
+                                            <div className='rating-date'>
+                                                <div className='user-review'>
+                                                    {rev.review}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -240,68 +304,6 @@ const SingleSpot = () => {
                             )}
                         </form>
                     </div>
-                </div>
-
-            </div>
-            <div className='all-reviews-div'>
-                <div className='reviewbox-rating-reviews'>
-                    <div className='buttom-spot-rating'>
-                        <i className='fas fa-star star-icon'></i>{spot.avgStarRating ? spot.avgStarRating.toFixed(1) : '0'}
-                    </div>
-                    <div className='numReview-bottom-spot'>{reviews.length} Reviews</div>
-
-                </div>
-                <div className='review-main'>
-                    {reviews?.map((rev) => (
-                        <div className='main-review-div' key={rev.id}>
-                            <div className='user-review-div'>
-                                <div className='left-div-review'>
-                                    <div className='names-delete-button'>
-                                        {user.user?.id === rev.userId && (
-                                            <div className='review-delete'>
-
-                                                <div className='edit-and-delete'>
-                                                    <div className='editRev-div'>
-                                                        <EditReview props={{ id: rev.id, singleReview: rev.review }} />
-                                                    </div>
-                                                    <button
-                                                        onClick={(e) => deleteRevButton(e, rev.id)}
-                                                        className='button-delete'
-                                                    >
-                                                        <i className="fa-solid fa-trash"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        )}
-                                        <div className='first-and-lastname'>
-                                            <div className='firstname-lastname-font'>
-                                                <i className="fas fa-user-circle" />
-                                                <div className='firstName'>
-                                                    {rev.User?.firstName}
-                                                </div>
-                                                <div className='lastName'>
-                                                    {rev.User?.lastName}
-
-                                                </div>
-                                            </div>
-                                            <div className='two'>
-                                                <div className='rate-date'>
-                                                    <div> {currentDate}</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br></br>
-                                    <div className='rating-date'>
-                                        <div className='user-review'>
-                                            {rev.review}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    ))}
                 </div>
             </div>
 

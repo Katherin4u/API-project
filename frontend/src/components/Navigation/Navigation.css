@@ -10,6 +10,7 @@
     align-items: center;
     position: sticky;
     top: 0;
+    bottom: 100px;
     z-index: 999;
     height: 2rem;
     background: white;
@@ -183,6 +184,62 @@ li .createSpotButton:hover {
     font-weight: bold;
     padding-top: 10px;
     padding-left: 15px;
+}
+
+.create-middle-buttons{
+    display: flex;
+}
+
+.middle-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 33rem;
+}
+
+.middle-button-modal-thing{
+    border: solid 1px darkgray;
+    padding: 10px;
+    border-radius: 20px;
+    width: 345px;
+    display: flex;
+    justify-content: space-around;
+    /* box-shadow: 0px 0px 14px 0.5px rgba(221, 221, 221, 0.7); */
+
+}
+.middle-button-modal-thing:hover{
+    border: solid 1px darkgray;
+    padding: 10px;
+    border-radius: 20px;
+    width: 345px;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0px 0px 14px 0.5px rgba(221, 221, 221, 0.7);
+
+}
+
+.button-search-thing{
+    background-color: #ff385c;
+    padding: 4px;
+    border-radius: 50px;
+}
+
+
+.Anywhere{
+    border-right: solid 2px darkgray;
+    padding: 7px;
+    padding-right: 10px;
+}
+.any-week{
+    border-right: solid 2px darkgray;
+    padding: 7px;
+    padding-right: 10px;
+}
+
+
+.add-guests{
+    padding: 7px;
+    padding-right: 10px;
 }
 
 @media screen and (max-width: 1024px) {

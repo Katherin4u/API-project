@@ -10,9 +10,10 @@ import './editReview.css'
 const EditReview = ({ props }) => {
     const dispatch = useDispatch()
     const history = useHistory()
+    const spot = useSelector((state) => state.spots.singleSpot)
     const { spotId } = useParams()
     const [review, setReview] = useState(props.singleReview)
-    const [stars, setStars] = useState(1);
+    const [stars, setStars] = useState(spot.avgStarRating);
     const [showMenu, setShowMenu] = useState(false);
     const user = useSelector((state) => state.session)
     const ulRef = useRef();
@@ -62,10 +63,12 @@ const EditReview = ({ props }) => {
 
 
     return (
-        <div className="div">
+        <div className="div-for-edit">
+            <div>
             <button  className="button-edit-comment" onClick={openMenu}>
                 Edit
             </button>
+            </div>
             <div className="nav-bar-dropdown-menu-container1">
                 <div className="nav-bar-dropdown-menu1">
                     <ul className={ulClassName} ref={ulRef}>
@@ -89,7 +92,7 @@ const EditReview = ({ props }) => {
                                 </select>
                             </label>
                             <div className="edit-review-submit-button-container">
-                                <button  type="submit">submit</button>
+                                <button className="edit-form-submit-button"  type="submit">submit</button>
                             </div>
                         </form>
                     </ul>

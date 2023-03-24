@@ -25,33 +25,48 @@ function Navigation({ isLoaded }) {
           </h3>
         </span> */}
         {sessionUser ? (
-          <NavLink exact to="/spots" style={{ all: 'unset' }} className="otherNav">
-            <span className='title'>
-              <img src={process.env.PUBLIC_URL + '/favicon-house.png'}></img>
-              <h3>
-                dupe-brb-loka
-              </h3>
-            </span>
-          </NavLink>
-        ):(
+          <div className="create-middle-buttons">
+            <NavLink exact to="/spots" style={{ all: 'unset' }} className="otherNav">
+              <span className='title'>
+                <img src={process.env.PUBLIC_URL + '/favicon-house.png'}></img>
+                <h3>
+                  dupe-brb-loka
+                </h3>
+              </span>
+            </NavLink>
+            <div className='middle-buttons'>
+              <div className='middle-button-modal-thing'>
+                <div className='Anywhere'> Anywhere</div>
+                <div className='any-week'> Any week</div>
+                <div className='add-guests'> coming soon</div>
+                <div className='button-search-thing'>
+                  <i style={{color:'white', padding: '4px'}} class="fa-solid fa-magnifying-glass"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
           <span className='title'>
-              <img src={process.env.PUBLIC_URL + '/favicon-house.png'}></img>
-              <h3>
-                dupe-brb-loka
-              </h3>
-            </span>
+            <img src={process.env.PUBLIC_URL + '/favicon-house.png'}></img>
+            <h3>
+              dupe-brb-loka
+            </h3>
+          </span>
         )}
       </div>
       <div className='nav-three'>
         {sessionUser ? (
-          <button onClick={(e) => handleCreateSpot(e)} className='createASpotButton'>
-            Create Spot
-          </button>
+          <div className="create-middle-buttons">
+            <button onClick={(e) => handleCreateSpot(e)} className='createASpotButton'>
+              Create Spot
+            </button>
+          </div>
         ) : (<div></div>)}
         <div className='button-div'>
           {isLoaded && (
-            <ProfileButton user={sessionUser}
-            />
+            <div>
+              <ProfileButton user={sessionUser} />
+            </div>
           )}
 
         </div>
