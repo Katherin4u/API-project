@@ -3,9 +3,11 @@ import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import './demoUser.css'
+import { useHistory } from "react-router-dom";
 
 
 function DemoUserModal() {
+    const history = useHistory()
     const dispatch = useDispatch();
     const [credential, setCredential] = useState("Demo-lition")
     const [password, setPassword] = useState('password')
@@ -16,7 +18,8 @@ function DemoUserModal() {
         e.preventDefault();
         setErrors([])
         return dispatch(sessionActions.demoUsers({ credential, password }))
-            .then(closeModal)
+            .then(closeModal,
+                history.push('/spots'))
             .catch(
                 async (res) => {
                     const data = await res.json();

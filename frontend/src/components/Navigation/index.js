@@ -1,5 +1,5 @@
 // frontend/src/components/Navigation/index.js
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
@@ -18,14 +18,29 @@ function Navigation({ isLoaded }) {
   return (
     <div className='nav-main'>
       <div className='nav'>
-        <NavLink exact to="/" style={{ all: 'unset' }} className="otherNav">
-          <span className='title'>
-            <img src={process.env.PUBLIC_URL + '/favicon-house.png'}></img>
-            <h3>
+        {/* <span className='title'>
+          <img src={process.env.PUBLIC_URL + '/favicon-house.png'}></img>
+          <h3>
             dupe-brb-loka
-            </h3>
-          </span>
-        </NavLink>
+          </h3>
+        </span> */}
+        {sessionUser ? (
+          <NavLink exact to="/spots" style={{ all: 'unset' }} className="otherNav">
+            <span className='title'>
+              <img src={process.env.PUBLIC_URL + '/favicon-house.png'}></img>
+              <h3>
+                dupe-brb-loka
+              </h3>
+            </span>
+          </NavLink>
+        ):(
+          <span className='title'>
+              <img src={process.env.PUBLIC_URL + '/favicon-house.png'}></img>
+              <h3>
+                dupe-brb-loka
+              </h3>
+            </span>
+        )}
       </div>
       <div className='nav-three'>
         {sessionUser ? (

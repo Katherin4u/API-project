@@ -4,8 +4,10 @@ import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import "./LoginForm.css";
+import { useHistory } from "react-router-dom";
 
 function LoginFormModal() {
+  const history = useHistory()
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
@@ -16,13 +18,13 @@ function LoginFormModal() {
     e.preventDefault();
     setErrors([]);
     return await dispatch(sessionActions.login({ credential, password }))
-      .then(closeModal)
+      .then(closeModal,
+        history.push('/spots'))
       .catch(
         async (res) => {
           const data = await res.json();
-          console.log(data)
           if (data && data.errors) setErrors([...data.errors]);
-          else if(data && data.message) setErrors([data.message])
+          else if (data && data.message) setErrors([data.message])
         }
       );
   };

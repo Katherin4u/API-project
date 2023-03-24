@@ -12,6 +12,8 @@
     font-size: 2em;
     font-weight: bold;
     margin: 8px;
+    line-break: auto;
+    word-break: break-all;
 }
 
 .spot-address {
@@ -100,6 +102,8 @@
     font-size: 2em;
     font-weight: bold;
     padding-bottom: 10px;
+    line-break: auto;
+    word-break: break-all;
 }
 
 .roomInfo {
@@ -170,12 +174,17 @@
 
 .review-delete {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: 0px 15px;
 }
 
+
 .review-delete button {
     cursor: pointer;
+}
+
+.editRev-div{
+    padding-right: 15px;
 }
 
 .reviewboxborder {
@@ -301,6 +310,17 @@
     display: flex;
     justify-content: center;
     padding-right: 70px;
+}
+
+.user-review{
+    line-break: auto;
+    word-break: break-all;
+}
+
+.edit-and-delete{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 @media screen and (max-width: 1024px) {

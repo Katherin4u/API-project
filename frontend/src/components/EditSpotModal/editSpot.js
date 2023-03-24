@@ -109,6 +109,8 @@ const EditSpotModal = () => {
                                 </div>
                                 {/* <label for="name" className="title-label" id="name-label">Edit Name</label> */}
                                 <input className="createSpot-name-input"
+                                    minLength={3}
+                                    maxLength={60}
                                     type='text'
                                     value={name}
                                     placeholder='Edit Name'

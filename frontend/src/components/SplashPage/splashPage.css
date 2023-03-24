@@ -1,0 +1,149 @@
+.wrapper {
+    background-color: black;
+}
+
+.welcome-main-container {
+    color: #ff385c;
+    margin: 0;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+}
+
+.about-main-container {
+    /* color:#ff385c ; */
+    font-weight: bold;
+    font-size: 25px;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+}
+
+.container-above-footer {
+    display: flex;
+    padding-bottom: 50px;
+}
+
+.main-contianer-splashpage {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+}
+
+.intro-about-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.images-container-splashpage {
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-right: 40px;
+    /* overflow: hidden */
+}
+
+.images-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.images-container img {
+    width: 400px;
+    /* set a fixed width for the images */
+    height: 300px;
+    /* set a fixed height for the images */
+    border-radius: 25px;
+    box-shadow: 3px 3px 10px black;
+    transition: transform 0.3s;
+    /* add a transition effect to the transform property */
+}
+
+.images-container2 img {
+    width: 400px;
+    /* set a fixed width for the images */
+    height: 300px;
+    /* set a fixed height for the images */
+    border-radius: 25px;
+    box-shadow: 3px 3px 10px black;
+    transition: transform 0.3s;
+    /* add a transition effect to the transform property */
+}
+
+.images-container img:hover {
+    transform: scale(1.1);
+    /* increase the size of the image when hovering over it */
+}
+
+.images-container2 img:hover {
+    transform: scale(1.1);
+    /* increase the size of the image when hovering over it */
+}
+
+.images-container2 {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spacing-image {
+    padding-right: 20px;
+    /* position: absolute; */
+}
+
+.spacing-image3 {
+    padding-right: 20px;
+    /* position: absolute; */
+}
+
+.spacing-image2 {
+    padding-right: 20px;
+    /* position: absolute; */
+}
+
+.spacing-image1 {
+    padding-right: 20px;
+    /* position: absolute; */
+}
+
+@media screen and (max-width: 1024px) {
+
+    .container-above-footer{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .images-container-splashpage{
+        width: 1000px;
+    }
+
+    .images-container img {
+        width: 300px;
+        /* set a fixed width for the images */
+        height: 200px;
+        /* set a fixed height for the images */
+        border-radius: 25px;
+        box-shadow: 3px 3px 10px black;
+        transition: transform 0.3s;
+        /* add a transition effect to the transform property */
+    }
+
+    .images-container2 img {
+        width: 300px;
+        /* set a fixed width for the images */
+        height: 200px;
+        /* set a fixed height for the images */
+        border-radius: 25px;
+        box-shadow: 3px 3px 10px black;
+        transition: transform 0.3s;
+        /* add a transition effect to the transform property */
+    }
+
+    .intro-about-container{
+        padding-left: 120px;
+    }
+
+}

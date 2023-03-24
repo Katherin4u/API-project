@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css';
 
 function SignupFormModal() {
+  const history = useHistory()
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -20,7 +22,8 @@ function SignupFormModal() {
     if (password === confirmPassword) {
       setErrors([]);
       return await dispatch(sessionActions.signup({ email, username, firstName, lastName, password }))
-        .then(closeModal)
+        .then(closeModal,
+          history.push('/spots'))
         .catch(async (res) => {
           const data = await res.json();
           if (data && data.errors) setErrors([...data.errors]);

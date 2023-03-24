@@ -30,7 +30,7 @@ const AllSpots = () => {
             {spots.map((spot) => (
                 <div className="single-spot" onClick={(e) => spotClick(e, spot.id)} key={spot.id}>
                     <div className="spot-image">
-                        <img className="image" src={spot.previewImage ? spot.previewImage : altImg} alt={spot.id}
+                        <img className="image" onError={e => { e.currentTarget.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/800px-No-Image-Placeholder.svg.png"; }} src={spot.previewImage ? spot.previewImage : altImg} alt={spot.id}
                         />
                     </div>
                     <div className="information-box">
