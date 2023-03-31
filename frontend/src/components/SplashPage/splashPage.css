@@ -109,6 +109,82 @@
     /* position: absolute; */
 }
 
+@media screen and (max-width: 1580px) {
+
+    .container-above-footer{
+        display: flex;
+        /* flex-direction: column; */
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+
+    .images-container img {
+        width: 250px;
+        /* set a fixed width for the images */
+        height: 150px;
+        /* set a fixed height for the images */
+        border-radius: 25px;
+        box-shadow: 3px 3px 10px black;
+        transition: transform 0.3s;
+        /* add a transition effect to the transform property */
+    }
+
+    .images-container2 img {
+        width: 250px;
+        /* set a fixed width for the images */
+        height: 150px;
+        /* set a fixed height for the images */
+        border-radius: 25px;
+        box-shadow: 3px 3px 10px black;
+        transition: transform 0.3s;
+        /* add a transition effect to the transform property */
+    }
+
+    .intro-about-container{
+        padding-left: 120px;
+    }
+
+}
+@media screen and (max-width: 1186px) {
+
+    .container-above-footer{
+        display: flex;
+        /* flex-direction: column; */
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    .images-container img {
+        width: 200px;
+        /* set a fixed width for the images */
+        height: 150px;
+        /* set a fixed height for the images */
+        border-radius: 25px;
+        box-shadow: 3px 3px 10px black;
+        transition: transform 0.3s;
+        /* add a transition effect to the transform property */
+    }
+
+    .images-container2 img {
+        width: 200px;
+        /* set a fixed width for the images */
+        height: 150px;
+        /* set a fixed height for the images */
+        border-radius: 25px;
+        box-shadow: 3px 3px 10px black;
+        transition: transform 0.3s;
+        /* add a transition effect to the transform property */
+    }
+
+    .intro-about-container{
+        padding-left: 120px;
+    }
+
+}
+
 @media screen and (max-width: 1024px) {
 
     .container-above-footer{
@@ -120,10 +196,14 @@
         width: 1000px;
     }
 
+    .intro-about-container{
+        width: 50rem;
+    }
+
     .images-container img {
-        width: 300px;
+        width: 200px;
         /* set a fixed width for the images */
-        height: 200px;
+        height: 150px;
         /* set a fixed height for the images */
         border-radius: 25px;
         box-shadow: 3px 3px 10px black;
@@ -132,9 +212,51 @@
     }
 
     .images-container2 img {
-        width: 300px;
+        width: 250px;
         /* set a fixed width for the images */
-        height: 200px;
+        height: 150px;
+        /* set a fixed height for the images */
+        border-radius: 25px;
+        box-shadow: 3px 3px 10px black;
+        transition: transform 0.3s;
+        /* add a transition effect to the transform property */
+    }
+
+    .intro-about-container{
+        padding-left: 120px;
+    }
+
+}
+@media screen and (max-width: 990px) {
+
+    .container-above-footer{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .images-container-splashpage{
+        width: 1000px;
+    }
+
+    .intro-about-container{
+        width: 50rem;
+    }
+
+    .images-container img {
+        width: 200px;
+        /* set a fixed width for the images */
+        height: 100px;
+        /* set a fixed height for the images */
+        border-radius: 25px;
+        box-shadow: 3px 3px 10px black;
+        transition: transform 0.3s;
+        /* add a transition effect to the transform property */
+    }
+
+    .images-container2 img {
+        width: 200px;
+        /* set a fixed width for the images */
+        height: 100px;
         /* set a fixed height for the images */
         border-radius: 25px;
         box-shadow: 3px 3px 10px black;

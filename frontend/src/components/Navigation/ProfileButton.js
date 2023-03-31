@@ -68,7 +68,7 @@ function ProfileButton({ user }) {
         <i className="fas fa-user-circle" />
       </button>
       <ul className={ulClassName} ref={ulRef}>
-        <ul className="list-profile-dropdown">
+        <div className="list-profile-dropdown">
           {user && sessionUser ? (
             <div>
               <div className="userInformation">
@@ -82,45 +82,44 @@ function ProfileButton({ user }) {
                   <li className="user-email">{user.email}</li>
                 </div>
               </div>
-              <div className="lastTwo">
+              <div className="lastTwo" style={{paddingBottom: "5px"}}>
                 <li className='logout-btn'>
-                  <button onClick={(e) => handleCreateSpot(e)} className='createSpotButton'>
+                  <button onClick={(e) => handleCreateSpot(e)} className='createSpotButton' style={{padding:"10px"}}>
                     Create Spot
                   </button>
                 </li>
-
               </div>
-                <li className="create-btn">
-                  <button className='createSpotButton' onClick={logout}>Log Out</button>
+                <li className="create-btn" style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+                  <button className='createSpotButton' onClick={logout} style={{padding: "10px"}}>Log Out</button>
                 </li>
             </ div>
           ) : (
-            <>
-              <li className="button-dropdown-item">
+            <div className="dropdown-things">
+              <div className="button-dropdown-item">
                 <OpenModalMenuItem
                   itemText="Log In"
                   onItemClick={closeMenu}
                   modalComponent={<LoginFormModal />}
                 />
-              </li>
-              <li className="button-dropdown-item">
+              </div>
+              <div className="button-dropdown-item">
                 <OpenModalMenuItem
                   itemText="Sign Up"
                   onItemClick={closeMenu}
                   modalComponent={<SignupFormModal />}
                 />
-              </li>
-              <li className="button-dropdown-item">
+              </div>
+              <div className="button-dropdown-item">
                 <OpenModalMenuItem
                   itemText="Demo Login"
                   onItemClick={closeMenu}
                   modalComponent={<DemoUserModal />}
                 />
-              </li>
+              </div>
 
-            </>
+            </div>
           )}
-        </ul>
+        </div>
       </ul>
     </div>
   );
