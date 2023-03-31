@@ -4,7 +4,8 @@
 
 .nav-main {
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
+    justify-content: space-between;
     border-bottom: 1px solid rgb(231, 230, 230);
     padding: 20px 30px;
     align-items: center;
@@ -36,9 +37,9 @@
     cursor: pointer;
 }
 
-.nav {
+/* .nav {
     flex-grow: 1;
-}
+} */
 
 .nav-home-img {
     width: 40px;
@@ -50,6 +51,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    /* padding-left: 34rem; */
 }
 
 
@@ -68,7 +70,14 @@
     width: 200px;
     overflow: hidden;
     height: 11em;
-    justify-content: space-around;
+    /* justify-content: space-around; */
+}
+
+.dropdown-things{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 180px;
 }
 
 .profile-dropdown:hover {
@@ -96,11 +105,12 @@
 }
 
 .createSpotButton {
-    all: unset;
     cursor: pointer;
-    font-size: 18px;
-    padding-top: 8px;
+    font-size: 16px;
     width: 100%;
+    background-color: white;
+    border: none;
+    border-radius: 15px;
 }
 
 
@@ -121,10 +131,14 @@ li .createSpotButton:hover {
     text-align: left;
     white-space: nowrap;
     font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
 }
 
 .button-dropdown-item:hover {
-    background-color: #f5f5f5;
+    background-color: #e9e6e6;
 }
 
 .button-div {
@@ -186,15 +200,15 @@ li .createSpotButton:hover {
     padding-left: 15px;
 }
 
-.create-middle-buttons{
-    display: flex;
+.create-middle-buttons1{
+    padding-right: 20px;
 }
 
 .middle-buttons{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-left: 33rem;
+    /* padding-left: 33rem; */
 }
 
 .middle-button-modal-thing{
@@ -242,24 +256,20 @@ li .createSpotButton:hover {
     padding-right: 10px;
 }
 
-@media screen and (max-width: 1024px) {
-    .nav {
-        flex-grow: .98;
-    }
-
-    .nav-three {
-        width: 170px;
-    }
-
-    .createASpotButton {
-        width: 100px;
-    }
-}
 
 .createASpotButton{
-    all: unset;
     cursor: pointer;
-    font-size: 20px;
-    padding-top: 8px;
-    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    padding-left: 9px;
+    padding-right: 9px;
+    background-color: white;
+    border: none;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+.createASpotButton:hover{
+   background-color: rgb(226, 225, 225);
 }
