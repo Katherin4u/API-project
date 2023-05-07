@@ -1,6 +1,6 @@
 # Airbnb-dupe
 
-Airbnb-dupe is a website clone, inspired by AirBnb. Airbnb-dupe allows you to create a spot to rent, you are able to edit the spot, comment on other spots,
+air-brb-loka is a website clone, inspired by AirBnb. Airbnb-dupe allows you to create a spot to rent, you are able to edit the spot, comment on other spots,
 as well as setting ratings for those spots.
 
 Live Site: https://dupe-brb-loka.onrender.com
