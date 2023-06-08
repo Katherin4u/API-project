@@ -22,5 +22,8 @@
     "url": "https://github.com/Katherin4u/API-project/issues"
   },
   "homepage": "https://github.com/Katherin4u/API-project#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "react-ga": "^3.3.1"
+  }
 }

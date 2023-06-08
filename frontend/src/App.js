@@ -11,6 +11,8 @@ import EditSpotModal from "./components/EditSpotModal/editSpot";
 import SplashPage from "./components/SplashPage/index"
 import Footer from "./components/Footer";
 import NotFound from "./components/PageNotFound";
+import RouteChangeTracker from "./components/RouteChangeTracker";
+
 
 
 
@@ -25,30 +27,37 @@ function App() {
     <>
       <div className="main-container">
         <Navigation isLoaded={isLoaded} />
+        <RouteChangeTracker />
         <main id='Content' >
           {isLoaded && (
             <Switch>
               <Route path="/spots/:spotId/edit">
                 <EditSpotModal />
                 <Footer />
+                <RouteChangeTracker />
               </Route>
               <Route path="/spots/create">
                 <CreateSpot />
                 <Footer />
+                <RouteChangeTracker />
               </Route>
               <Route path='/spots/:spotId'>
                 <SingleSpot />
                 <Footer />
+                <RouteChangeTracker />
               </Route>
               <Route exact path='/'>
                 <SplashPage />
+                <RouteChangeTracker />
               </Route>
               <Route path='/spots'>
                 <AllSpots />
                 <Footer />
+                <RouteChangeTracker />
               </Route>
               <Route path='/'>
                 <NotFound />
+                <RouteChangeTracker />
               </Route>
               {/* <Route exact path='/'>
                 <AllSpots />

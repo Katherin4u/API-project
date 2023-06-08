@@ -12,6 +12,9 @@ import App from './App';
 import configureStore from './store';
 import { restoreCSRF, csrfFetch } from "./store/csrf";
 import * as sessionActions from './store/session';
+import ReactGA from 'react-ga';
+const TRACKING_ID = "UA-272880514-2"; // YOUR_OWN_TRACKING_ID
+ReactGA.initialize(TRACKING_ID);
 
 const store = configureStore();
 
