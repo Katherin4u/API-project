@@ -20,6 +20,10 @@ Live Site: https://dupe-brb-loka.onrender.com
 
 
 # Site Images and Functionalities
+Splash Page
+![image](https://github.com/Katherin4u/API-project/assets/107587143/7fb431ed-648c-4fb5-a2c8-917e702d258f)
+
+
 Home Page!
 ![image](https://user-images.githubusercontent.com/107587143/213932489-c53ec2eb-5273-4961-be1a-96c44e554f01.png)
 
