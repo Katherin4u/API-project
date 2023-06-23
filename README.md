@@ -23,9 +23,9 @@ Live Site: https://dupe-brb-loka.onrender.com
 Splash Page
 ![image](https://github.com/Katherin4u/API-project/assets/107587143/7fb431ed-648c-4fb5-a2c8-917e702d258f)
 
-
 Home Page!
-![image](https://user-images.githubusercontent.com/107587143/213932489-c53ec2eb-5273-4961-be1a-96c44e554f01.png)
+![image](https://github.com/Katherin4u/API-project/assets/107587143/a48290c6-5b74-4ac1-8314-e8acbeb5cf55)
+
 
 Specific spot, with user info, able to create a review and edit the spot
 ![image](https://user-images.githubusercontent.com/107587143/213932537-e425daba-62fc-4ccf-b197-6f7c39e94ff2.png)
