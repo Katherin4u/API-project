@@ -32,7 +32,8 @@ Specific spot, with user info, able to create a review and edit the spot
 Reviews section
 ![image](https://github.com/Katherin4u/API-project/assets/107587143/d846bb9b-5ee3-4aef-aaf8-257ceb1c62dc)
 
-
+Create spot page
+![image](https://github.com/Katherin4u/API-project/assets/107587143/189ba84f-c676-4189-adc3-27042495fbf7)
 
 
 
