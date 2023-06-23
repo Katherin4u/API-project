@@ -26,9 +26,8 @@ Splash Page
 Home Page!
 ![image](https://github.com/Katherin4u/API-project/assets/107587143/a48290c6-5b74-4ac1-8314-e8acbeb5cf55)
 
-
 Specific spot, with user info, able to create a review and edit the spot
-![image](https://user-images.githubusercontent.com/107587143/213932537-e425daba-62fc-4ccf-b197-6f7c39e94ff2.png)
+![image](https://github.com/Katherin4u/API-project/assets/107587143/c006e7f4-7db5-4018-a129-2ab7a362d63c)
 
 Reviewssection
 ![image](https://user-images.githubusercontent.com/107587143/213932580-e8c9bb83-5914-4eaa-9164-f976d20272da.png)
