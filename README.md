@@ -29,7 +29,7 @@ Live Site: https://dupe-brb-loka.onrender.com
 ## Specific spot, with user info, able to create a review and edit the spot
 ![image](https://github.com/Katherin4u/API-project/assets/107587143/c006e7f4-7db5-4018-a129-2ab7a362d63c)
 
-Reviews section
+## Reviews section
 ![image](https://github.com/Katherin4u/API-project/assets/107587143/d846bb9b-5ee3-4aef-aaf8-257ceb1c62dc)
 
 Create spot page
