@@ -39,7 +39,7 @@ Create spot page
 
 
 # future features
-- Being able to change the image on edit
-- Creating a booking
+- ## Being able to change the image on edit
+-  Creating a booking
 - all user spots( for specified user)
 
